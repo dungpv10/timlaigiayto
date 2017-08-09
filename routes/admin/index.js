@@ -1,14 +1,11 @@
 let express = require('express');
 
-let path = require('path');
 let router = express.Router();
 
+let userRouter = require('./user');
+let roleRouter = require('./role');
 
-
-
-router.get('/', (req, res) => {
-    res.render('admin/user/index');
-});
-
+router.use('/users', userRouter);
+router.use('/permission', roleRouter);
 
 module.exports = router;

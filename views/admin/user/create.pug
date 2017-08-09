@@ -1,0 +1,37 @@
+extends ../layouts/form
+block sub_content
+
+    .panel.panel-success
+        .panel-heading
+            h3.panel-title
+                i.livicon(data-name='pacman', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                |                                 Tạo mới quản trị viên
+            span.pull-right.clickable
+                i.glyphicon.glyphicon-chevron-up
+        .panel-body
+            form#create-user.form-horizontal(action = "/admin/users/create", method = "POST")
+                .form-group
+                    label.col-md-3.control-label.hidden-xs Họ và tên
+                    .col-md-4.col-xs-6.colsm-6
+                        input.form-control(type='text', name='firstName', placeholder='Họ')
+                    .col-md-4.col-xs-6.colsm-6
+                        input.form-control(type='text', name='lastName', placeholder='Tên')
+                .form-group
+                    label.col-md-3.control-label Email
+                    .col-md-8
+                        input.form-control(type='text', name='email', placeholder='Nhập email')
+                .form-group
+                    label.col-md-3.control-label Mật khẩu
+                    .col-md-8
+                        input.form-control(type='password', name='password', placeholder='Nhập mật khẩu')
+                .form-group
+                    label.col-md-3.control-label Xác nhận mật khẩu
+                    .col-md-8
+                        input.form-control(type='password', name='confirmpassword', placeholder='Xác nhận mật khẩu')
+                .form-group
+                    label.col-md-3.control-label Chọn quyền
+                    .col-md-8
+                        select.form-control( name='roles[]')
+                .form-group
+                    .col-md-offset-3.col-md-8
+                        button.btn.btn-primary(type='submit') Submit
