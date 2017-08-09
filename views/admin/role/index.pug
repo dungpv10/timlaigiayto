@@ -1,8 +1,4 @@
-extend ../layouts/main.pug
-
-block header_css
-    <link href="/backend/css/pages/tables.css" rel="stylesheet" type="text/css" />
-    <link href="/backend/css/pages/buttonbuilder2.css" rel="stylesheet"/>
+extends ../layouts/table
 
 block content
     .col-md-12
@@ -13,8 +9,8 @@ block content
                     i.livicon(data-name='camera-alt', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
                     |                                     Simple Table
             .portlet-body
-                .table-scrollable
-                    table.table.table-hover
+                .ds
+                    table.table.table-hover#list
                         thead
                             tr
                                 th #
