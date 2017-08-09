@@ -1,0 +1,1019 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        title Simple Tables | Josh Admin Template
+        meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
+        // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+        // WARNING: Respond.js doesn't work if you view the page via file://
+        //if lt IE 9
+          script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+          script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+        // global css
+        link(href='/backend/css/bootstrap.min.css', rel='stylesheet', type='text/css')
+        link(href='/backend/vendors/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+        link#colorscheme(href='/backend/css/styles/black.css', rel='stylesheet', type='text/css')
+        link(href='/backend/css/panel.css', rel='stylesheet', type='text/css')
+        link(href='/backend/css/metisMenu.css', rel='stylesheet', type='text/css')
+        // end of global css
+        // page level css
+        link(href='/backend/css/pages/tables.css', rel='stylesheet', type='text/css')
+        // end of page level css
+    body.skin-josh
+        header.header
+            a.logo(href='index.html')
+                img(src='img/logo.png', alt='logo')
+            nav.navbar.navbar-static-top(role='navigation')
+                // Sidebar toggle button
+                div
+                    a.navbar-btn.sidebar-toggle(href='#', data-toggle='offcanvas', role='button')
+                        .responsive_nav
+                .navbar-right
+                    ul.nav.navbar-nav
+                        li.dropdown.messages-menu
+                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                i.livicon(data-name='message-flag', data-loop='true', data-color='#42aaca', data-hovercolor='#42aaca', data-size='28')
+                                span.label.label-success 4
+                            ul.dropdown-menu.dropdown-messages.pull-right
+                                li.dropdown-title 4 New Messages
+                                li.unread.message
+                                    a.message(href='javascript:;')
+                                        i.pull-right(data-toggle='tooltip', data-placement='top', title='Airi Satou as Read')
+                                            span.pull-right.ol.livicon(data-n='adjust', data-s='10', data-c='#287b0b')
+                                        img.img-responsive.message-image(data-src='holder.js/45x45/#000:#fff', alt='image')
+                                        .message-body
+                                            strong Riot Zeast
+                                            br
+                                            | Hello, You there?
+                                            br
+                                            small 8 minutes ago
+                                li.unread.message
+                                    a.message(href='javascript:;')
+                                        i.pull-right(data-toggle='tooltip', data-placement='top', title='Airi Satou as Read')
+                                            span.pull-right.ol.livicon(data-n='adjust', data-s='10', data-c='#287b0b')
+                                        img.img-responsive.message-image(data-src='holder.js/45x45/#000:#fff', alt='image')
+                                        .message-body
+                                            strong John Kerry
+                                            br
+                                            | Can we Meet ?
+                                            br
+                                            small 45 minutes ago
+                                li.unread.message
+                                    a.message(href='javascript:;')
+                                        i.pull-right(data-toggle='tooltip', data-placement='top', title='Airi Satou as Read')
+                                            span.pull-right.ol.livicon(data-n='adjust', data-s='10', data-c='#287b0b')
+                                        img.img-responsive.message-image(data-src='holder.js/45x45/#000:#fff', alt='image')
+                                        .message-body
+                                            strong Jenny Kerry
+                                            br
+                                            | Dont forgot to call...
+                                            br
+                                            small An hour ago
+                                li.unread.message
+                                    a.message(href='javascript:;')
+                                        i.pull-right(data-toggle='tooltip', data-placement='top', title='Airi Satou as Read')
+                                            span.pull-right.ol.livicon(data-n='adjust', data-s='10', data-c='#287b0b')
+                                        img.img-responsive.message-image(data-src='holder.js/45x45/#000:#fff', alt='image')
+                                        .message-body
+                                            strong Ronny
+                                            br
+                                            | Hey! sup Dude?
+                                            br
+                                            small 3 Hours ago
+                                li.footer
+                                    a(href='#') View all
+                        li.dropdown.notifications-menu
+                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                i.livicon(data-name='bell', data-loop='true', data-color='#e9573f', data-hovercolor='#e9573f', data-size='28')
+                                span.label.label-warning 7
+                            ul.notifications.dropdown-menu
+                                li.dropdown-title You have 7 notifications
+                                li
+                                    // inner menu: contains the actual data
+                                    ul.menu
+                                        li
+                                            i.livicon.danger(data-n='timer', data-s='20', data-c='white', data-hc='white')
+                                            a(href='#') after a long time
+                                            small.pull-right
+                                                span.livicon.paddingright_10(data-n='timer', data-s='10')
+                                                |                                             Just Now
+                                        li
+                                            i.livicon.success(data-n='gift', data-s='20', data-c='white', data-hc='white')
+                                            a(href='#') Jef's Birthday today
+                                            small.pull-right
+                                                span.livicon.paddingright_10(data-n='timer', data-s='10')
+                                                |                                             Few seconds ago
+                                        li
+                                            i.livicon.warning(data-n='dashboard', data-s='20', data-c='white', data-hc='white')
+                                            a(href='#') out of space
+                                            small.pull-right
+                                                span.livicon.paddingright_10(data-n='timer', data-s='10')
+                                                |                                             8 minutes ago
+                                        li
+                                            i.livicon.bg-aqua(data-n='hand-right', data-s='20', data-c='white', data-hc='white')
+                                            a(href='#') New friend request
+                                            small.pull-right
+                                                span.livicon.paddingright_10(data-n='timer', data-s='10')
+                                                |                                             An hour ago
+                                        li
+                                            i.livicon.danger(data-n='shopping-cart-in', data-s='20', data-c='white', data-hc='white')
+                                            a(href='#') On sale 2 products
+                                            small.pull-right
+                                                span.livicon.paddingright_10(data-n='timer', data-s='10')
+                                                |                                             3 Hours ago
+                                        li
+                                            i.livicon.success(data-n='image', data-s='20', data-c='white', data-hc='white')
+                                            a(href='#') Lee Shared your photo
+                                            small.pull-right
+                                                span.livicon.paddingright_10(data-n='timer', data-s='10')
+                                                |                                             Yesterday
+                                        li
+                                            i.livicon.warning(data-n='thumbs-up', data-s='20', data-c='white', data-hc='white')
+                                            a(href='#') David liked your photo
+                                            small.pull-right
+                                                span.livicon.paddingright_10(data-n='timer', data-s='10')
+                                                |                                             2 July 2014
+                                li.footer
+                                    a(href='#') View all
+                        li.dropdown.user.user-menu
+                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                img.img-circle.img-responsive.pull-left(data-src='holder.js/35x35/#fff:#000', width='35', height='35', alt='riot')
+                                .riot
+                                    div
+                                        | Riot
+                                        span
+                                            i.caret
+                            ul.dropdown-menu
+                                // User image
+                                li.user-header.bg-light-blue
+                                    img.img-responsive.img-circle(data-src='holder.js/90x90/#fff:#000', alt='User Image')
+                                    p.topprofiletext Riot Zeast
+                                // Menu Body
+                                li.divider(role='presentation')
+                                li
+                                    a(href='#')
+                                        i.livicon(data-name='user', data-s='18')
+                                        |                                     My Profile
+                                li(role='presentation')
+                                li
+                                    a(href='#')
+                                        i.livicon(data-name='gears', data-s='18')
+                                        |                                     Account Settings
+                                li.divider(role='presentation')
+                                // Menu Footer
+                                li.user-footer
+                                    .pull-left
+                                        a(href='lockscreen.html')
+                                            i.livicon(data-name='lock', data-s='18')
+                                            |                                         Lock
+                                    .pull-right
+                                        a(href='login.html')
+                                            i.livicon(data-name='sign-out', data-s='18')
+                                            |                                         Logout
+        .wrapper.row-offcanvas.row-offcanvas-left
+            // Left side column. contains the logo and sidebar
+            aside.left-side.sidebar-offcanvas
+                section.sidebar
+                    .page-sidebar.sidebar-nav
+                        .nav_icons
+                            ul.sidebar_threeicons
+                                li
+                                    a(href='form_builder.html')
+                                        i.livicon(data-name='hammer', title='Form Builder 1', data-loop='true', data-color='#42aaca', data-hc='#42aaca', data-s='25')
+                                li
+                                    a(href='form_builder2.html')
+                                        i.livicon(data-name='list-ul', title='Form Builder 2', data-loop='true', data-color='#e9573f', data-hc='#e9573f', data-s='25')
+                                li
+                                    a(href='buttonbuilder.html')
+                                        i.livicon(data-name='vector-square', title='Button Builder', data-loop='true', data-color='#f6bb42', data-hc='#f6bb42', data-s='25')
+                                li
+                                    a(href='page_builder.html')
+                                        i.livicon(data-name='new-window', title='Page Builder', data-loop='true', data-color='#37bc9b', data-hc='#37bc9b', data-s='25')
+                        .clearfix
+                        // BEGIN SIDEBAR MENU
+                        ul#menu.page-sidebar-menu
+                            li
+                                a(href='index.html')
+                                    i.livicon(data-name='home', data-size='18', data-c='#418BCA', data-hc='#418BCA', data-loop='true')
+                                    span.title Dashboard
+                            li
+                                a(href='#')
+                                    i.livicon(data-name='medal', data-size='18', data-c='#00bc8c', data-hc='#00bc8c', data-loop='true')
+                                    span.title Builders
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li
+                                        a(href='form_builder.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Form Builder
+                                    li
+                                        a(href='form_builder2.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Form Builder 2
+                                    li
+                                        a(href='buttonbuilder.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Button Builder
+                                    li
+                                        a(href='page_builder.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Page Builder
+                            li
+                                a(href='#')
+                                    i.livicon(data-name='doc-portrait', data-c='#5bc0de', data-hc='#5bc0de', data-size='18', data-loop='true')
+                                    span.title Forms
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li
+                                        a(href='form_examples.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Form Examples
+                                    li
+                                        a(href='form_editor.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Form Editors
+                                    li
+                                        a(href='form_validation.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Form Validation
+                                    li
+                                        a(href='formelements.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Form Elements
+                                    li
+                                        a(href='form_layouts.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Form Layouts
+                                    li
+                                        a(href='formwizard.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Form Wizards
+                                    li
+                                        a(href='accordionformwizard.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Accordion Wizards
+                            li
+                                a(href='#')
+                                    i.livicon(data-name='brush', data-c='#F89A14', data-hc='#F89A14', data-size='18', data-loop='true')
+                                    span.title UI Features
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li
+                                        a(href='animatedicons.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Animated Icons
+                                    li
+                                        a(href='buttons.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Buttons
+                                    li
+                                        a(href='advanced_buttons.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Advanced Buttons
+                                    li
+                                        a(href='tabs_accordions.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Tabs and Accordions
+                                    li
+                                        a(href='panels.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Panels
+                                    li
+                                        a(href='icon.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Font Icons
+                                    li
+                                        a(href='color.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Color Picker Slider
+                                    li
+                                        a(href='grid.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Grid Layout
+                                    li
+                                        a(href='carousel.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Carousel
+                                    li
+                                        a(href='advanced_modals.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Advanced Modals
+                                    li
+                                        a(href='tagsinput.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Tags Input
+                                    li
+                                        a(href='nestable_list.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Nestable List
+                                    li
+                                        a(href='toastr_notification.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Toastr Notifications
+                                    li
+                                        a(href='notifications.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Notifications
+                                    li
+                                        a(href='session_timeout.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Session Timeout
+                                    li
+                                        a(href='portlet_draggable.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Draggable Portlets
+                            li
+                                a(href='#')
+                                    i.livicon(data-name='lab', data-c='#EF6F6C', data-hc='#EF6F6C', data-size='18', data-loop='true')
+                                    span.title UI Components
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li
+                                        a(href='general.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         General Components
+                                    li
+                                        a(href='pickers.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Pickers
+                                    li
+                                        a(href='x-editable.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         X-editable
+                                    li
+                                        a(href='timeline.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Timeline
+                                    li
+                                        a(href='transitions.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Transitions
+                                    li
+                                        a(href='sliders.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Sliders
+                                    li
+                                        a(href='knob.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Circles Sliders
+                            li.active
+                                a(href='#')
+                                    i.livicon(data-name='table', data-c='#418BCA', data-hc='#418BCA', data-size='18', data-loop='true')
+                                    span.title Tables
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li#active.active
+                                        a(href='simple_table.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Simple tables
+                                    li
+                                        a(href='advanced_tables.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Advanced Data Tables
+                                    li
+                                        a(href='editable_table.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Editable Datatables
+                                    li
+                                        a(href='responsive_tables.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Responsive Datatables
+                            li
+                                a(href='#')
+                                    i.livicon(data-name='barchart', data-size='18', data-c='#00bc8c', data-hc='#00bc8c', data-loop='true')
+                                    span.title Charts
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li
+                                        a(href='charts.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Flot Charts
+                                    li
+                                        a(href='piecharts.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Pie Charts
+                                    li
+                                        a(href='charts_animation.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Animated Charts
+                                    li
+                                        a(href='jscharts.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         JS Charts
+                                    li
+                                        a(href='sparklinecharts.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Sparkline Charts
+                            li
+                                a(href='calendar.html')
+                                    i.livicon(data-c='#F89A14', data-hc='#F89A14', data-name='calendar', data-size='18', data-loop='true')
+                                    span.badge.badge-danger 7
+                                    |                                 Calendar
+                            li
+                                a(href='#')
+                                    i.livicon(data-name='mail', data-size='18', data-c='#5bc0de', data-hc='#5bc0de', data-loop='true')
+                                    span.title Email
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li
+                                        a(href='Inbox.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Inbox
+                                    li
+                                        a(href='compose.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Compose
+                                    li
+                                        a(href='view_mail.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Single Mail
+                            li
+                                a(href='tasks.html')
+                                    i.livicon(data-c='#EF6F6C', data-hc='#EF6F6C', data-name='list-ul', data-size='18', data-loop='true')
+                                    span.badge.badge-danger 10
+                                    |                                 Tasks
+                            li
+                                a(href='#')
+                                    i.livicon(data-name='image', data-c='#418BCA', data-hc='#418BCA', data-size='18', data-loop='true')
+                                    span.title Gallery
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li
+                                        a(href='gallery.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Gallery
+                                    li
+                                        a(href='masonry_gallery.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Masonry Gallery
+                                    li
+                                        a(href='dropzone.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Dropzone
+                                    li
+                                        a(href='imagecropping.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Image Cropping
+                                    li
+                                        a(href='multiple_upload.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Multiple File Upload
+                                    li
+                                        a(href='imgmagnifier.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Image Magnifier
+                            li
+                                a(href='#')
+                                    i.livicon(data-name='users', data-size='18', data-c='#00bc8c', data-hc='#00bc8c', data-loop='true')
+                                    span.title Users
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li
+                                        a(href='users.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Users
+                                    li
+                                        a(href='adduser.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Add New User
+                                    li
+                                        a(href='view_user.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         View User
+                                    li
+                                        a(href='deleted_users.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Deleted Users
+                            li
+                                a(href='#')
+                                    i.livicon(data-name='map', data-c='#5bc0de', data-hc='#5bc0de', data-size='18', data-loop='true')
+                                    span.title Maps
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li
+                                        a(href='googlemaps.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Google Maps
+                                    li
+                                        a(href='vectormaps.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Vector Maps
+                                    li
+                                        a(href='advancedmaps.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Advanced Maps
+                            li
+                                a(href='#')
+                                    i.livicon(data-name='comment', data-c='#F89A14', data-hc='#F89A14', data-size='18', data-loop='true')
+                                    span.title Blog
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li
+                                        a(href='blog_list.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Blog List
+                                    li
+                                        a(href='blog_details.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Blog Details
+                                    li
+                                        a(href='add_newblog.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Add New Blog
+                            li
+                                a(href='#')
+                                    i.livicon(data-name='move', data-c='#EF6F6C', data-hc='#EF6F6C', data-size='18', data-loop='true')
+                                    span.title News
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li
+                                        a(href='news.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         News
+                                    li
+                                        a(href='news_item.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         News Details
+                            li
+                                a(href='#')
+                                    i.livicon(data-name='flag', data-c='#418bca', data-hc='#418bca', data-size='18', data-loop='true')
+                                    span.title Pages
+                                    span.fa.arrow
+                                ul.sub-menu
+                                    li
+                                        a(href='lockscreen.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Lockscreen
+                                    li
+                                        a(href='invoice.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Invoice
+                                    li
+                                        a(href='login.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Login
+                                    li
+                                        a(href='login2.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Login 2
+                                    li
+                                        a(href='login.html#toregister')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Register
+                                    li
+                                        a(href='register2.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Register 2
+                                    li
+                                        a(href='404.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         404 Error
+                                    li
+                                        a(href='500.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         500 Error
+                                    li
+                                        a(href='blank.html')
+                                            i.fa.fa-angle-double-right
+                                            |                                         Blank Page
+                        // END SIDEBAR MENU
+                // /.sidebar
+            // Right side column. Contains the navbar and content of the page
+            aside.right-side
+                // Content Header (Page header)
+                section.content-header
+                    // section starts
+                    h1 Simple Tables
+                    ol.breadcrumb
+                        li
+                            a(href='index.html')
+                                i.livicon(data-name='home', data-size='14', data-loop='true')
+                                |                             Dashboard
+                        li
+                            a(href='#') DataTables
+                        li.active Simple Tables
+                // section ends
+                section.content
+                    .row
+                        .col-md-6
+                            // BEGIN SAMPLE TABLE PORTLET
+                            .portlet.box.primary
+                                .portlet-title
+                                    .caption
+                                        i.livicon(data-name='camera-alt', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                                        |                                     Simple Table
+                                .portlet-body
+                                    .table-scrollable
+                                        table.table.table-hover
+                                            thead
+                                                tr
+                                                    th #
+                                                    th First Name
+                                                    th Last Name
+                                                    th Username
+                                                    th Status
+                                            tbody
+                                                tr
+                                                    td 1
+                                                    td Airi Satou
+                                                    td Kelly
+                                                    td Satou124
+                                                    td
+                                                        span.label.label-sm.label-success Approved
+                                                tr
+                                                    td 2
+                                                    td Angelica
+                                                    td Ramos
+                                                    td Angelica343
+                                                    td
+                                                        span.label.label-sm.label-info Pending
+                                                tr
+                                                    td 3
+                                                    td Ashton
+                                                    td Cox
+                                                    td Cox111
+                                                    td
+                                                        span.label.label-sm.label-warning Suspended
+                                                tr
+                                                    td 4
+                                                    td Bradley
+                                                    td Greer
+                                                    td Bradley
+                                                    td
+                                                        span.label.label-sm.label-danger Blocked
+                            // END SAMPLE TABLE PORTLET
+                        .col-md-6
+                            // BEGIN BORDERED TABLE PORTLET
+                            .portlet.box.danger
+                                .portlet-title
+                                    .caption
+                                        i.livicon(data-name='wifi', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                                        |                                     Bordered Table
+                                .portlet-body
+                                    .table-scrollable
+                                        table.table.table-bordered.table-hover
+                                            thead
+                                                tr
+                                                    th #
+                                                    th First Name
+                                                    th Last Name
+                                                    th Username
+                                                    th Status
+                                            tbody
+                                                tr
+                                                    td(rowspan='2') 1
+                                                    td Airi Satou
+                                                    td Kelly
+                                                    td Satou124
+                                                    td
+                                                        span.label.label-sm.label-success Approved
+                                                tr
+                                                    td Angelica
+                                                    td Ramos
+                                                    td Angelica343
+                                                    td
+                                                        span.label.label-sm.label-info Pending
+                                                tr
+                                                    td 2
+                                                    td Ashton
+                                                    td Cox
+                                                    td Cox111
+                                                    td
+                                                        span.label.label-sm.label-warning Suspended
+                                                tr
+                                                    td 3
+                                                    td Bradley
+                                                    td Greer
+                                                    td Bradley
+                                                    td
+                                                        span.label.label-sm.label-danger Blocked
+                            // END BORDERED TABLE PORTLET
+                    .row
+                        .col-md-6
+                            // BEGIN SAMPLE TABLE PORTLET
+                            .portlet.box.info
+                                .portlet-title
+                                    .caption
+                                        i.livicon(data-name='timer', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                                        |                                     Striped Rows Table
+                                .portlet-body
+                                    .table-scrollable
+                                        table.table.table-striped.table-hover
+                                            thead
+                                                tr
+                                                    th #
+                                                    th First Name
+                                                    th Last Name
+                                                    th Username
+                                                    th Status
+                                            tbody
+                                                tr
+                                                    td 1
+                                                    td Airi Satou
+                                                    td Kelly
+                                                    td Satou124
+                                                    td
+                                                        span.label.label-sm.label-success Approved
+                                                tr
+                                                    td 2
+                                                    td Angelica
+                                                    td Ramos
+                                                    td Angelica343
+                                                    td
+                                                        span.label.label-sm.label-info Pending
+                                                tr
+                                                    td 3
+                                                    td Ashton
+                                                    td Cox
+                                                    td Cox111
+                                                    td
+                                                        span.label.label-sm.label-warning Suspended
+                                                tr
+                                                    td 4
+                                                    td Bradley
+                                                    td Greer
+                                                    td Bradley
+                                                    td
+                                                        span.label.label-sm.label-danger Blocked
+                            // END SAMPLE TABLE PORTLET
+                        .col-md-6
+                            // BEGIN CONDENSED TABLE PORTLET
+                            .portlet.box.warning
+                                .portlet-title
+                                    .caption
+                                        i.livicon(data-name='film', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                                        |                                     Condensed Table
+                                .portlet-body
+                                    .table-scrollable
+                                        table.table.table-condensed.table-hover
+                                            thead
+                                                tr
+                                                    th #
+                                                    th First Name
+                                                    th Last Name
+                                                    th Username
+                                                    th Status
+                                            tbody
+                                                tr
+                                                    td 1
+                                                    td Airi Satou
+                                                    td Kelly
+                                                    td Satou124
+                                                    td
+                                                        span.label.label-sm.label-success Approved
+                                                tr
+                                                    td 2
+                                                    td Angelica
+                                                    td Ramos
+                                                    td Angelica343
+                                                    td
+                                                        span.label.label-sm.label-info Pending
+                                                tr
+                                                    td 3
+                                                    td Ashton
+                                                    td Cox
+                                                    td Cox111
+                                                    td
+                                                        span.label.label-sm.label-warning Suspended
+                                                tr
+                                                    td 4
+                                                    td Bradley
+                                                    td Greer
+                                                    td Bradley
+                                                    td
+                                                        span.label.label-sm.label-danger Blocked
+                                                tr
+                                                    td 5
+                                                    td Bradley
+                                                    td Greer
+                                                    td Bradley
+                                                    td
+                                                        span.label.label-sm.label-danger Blocked
+                            // END CONDENSED TABLE PORTLET
+                    .row
+                        .col-md-6
+                            // BEGIN SAMPLE TABLE PORTLET
+                            .portlet.box.danger
+                                .portlet-title
+                                    .caption
+                                        i.livicon(data-name='lab', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                                        |                                     Color Rows
+                                .portlet-body
+                                    .table-scrollable
+                                        table.table.table-bordered.table-hover
+                                            thead
+                                                tr
+                                                    th #
+                                                    th Class Name
+                                                    th Column
+                                                    th Column
+                                                    th Column
+                                            tbody
+                                                tr.active
+                                                    td 1
+                                                    td active
+                                                    td Column heading
+                                                    td Column heading
+                                                    td Column heading
+                                                tr.success
+                                                    td 2
+                                                    td success
+                                                    td Column heading
+                                                    td Column heading
+                                                    td Column heading
+                                                tr.warning
+                                                    td 3
+                                                    td warning
+                                                    td Column heading
+                                                    td Column heading
+                                                    td Column heading
+                                                tr.danger
+                                                    td 4
+                                                    td danger
+                                                    td Column heading
+                                                    td Column heading
+                                                    td Column heading
+                            // END SAMPLE TABLE PORTLET
+                        .col-md-6
+                            // BEGIN SAMPLE TABLE PORTLET
+                            .portlet.box.default
+                                .portlet-title
+                                    .caption
+                                        i.livicon(data-name='pen', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                                        |                                     Advanced Table
+                                .portlet-body
+                                    .table-scrollable
+                                        table.table.table-striped.table-bordered.table-advance.table-hover
+                                            thead
+                                                tr
+                                                    th
+                                                        i.fa.fa-briefcase
+                                                        |                                                     From
+                                                    th.hidden-xs
+                                                        i.fa.fa-question
+                                                        |                                                     Descrition
+                                                    th
+                                                        i.fa.fa-bookAiri.Satou
+                                                        |                                                     Total
+                                                    th
+                                            tbody
+                                                tr
+                                                    td
+                                                        a(href='#') Pixel Ltd
+                                                    td.hidden-xs Server Purchase
+                                                    td
+                                                        | 52560.10$
+                                                        span.label.label-sm.label-success.label-mini Paid
+                                                    td
+                                                        a.btn.default.btn-xs.green-stripe(href='#') View
+                                                tr
+                                                    td
+                                                        a(href='#') Smart House
+                                                    td.hidden-xs Furniture Purchase
+                                                    td
+                                                        | 5760.00$
+                                                        span.label.label-sm.label-warning.label-mini Pending
+                                                    td
+                                                        a.btn.default.btn-xs.yellow-stripe(href='#') View
+                                                tr
+                                                    td
+                                                        a(href='#') FoodMaster Ltd
+                                                    td.hidden-xs Annual Expenses
+                                                    td
+                                                        | 12400.00$
+                                                        span.label.label-sm.label-primary.label-mini Paid
+                                                    td
+                                                        a.btn.default.btn-xs.blue-stripe(href='#') View
+                                                tr
+                                                    td
+                                                        a(href='#') WaterPure Ltd
+                                                    td.hidden-xs Payment 2013
+                                                    td
+                                                        | 610.50$
+                                                        span.label.label-sm.label-danger.label-mini Overdue
+                                                    td
+                                                        a.btn.default.btn-xs.red-stripe(href='#') View
+                            // END SAMPLE TABLE PORTLET
+                    .row
+                        .col-md-6
+                            // BEGIN SAMPLE TABLE PORTLET
+                            .portlet.box.primary
+                                .portlet-title
+                                    .caption
+                                        i.livicon(data-name='screenshot', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                                        |                                     Columns Tables
+                                .portlet-body
+                                    .table-scrollable
+                                        table.table.table-bordered.table-hover
+                                            thead
+                                                tr
+                                                    th #
+                                                    th Column
+                                                    th Column
+                                                    th Column
+                                                    th Column
+                                            tbody
+                                                tr
+                                                    td 1
+                                                    td.active active
+                                                    td.success success
+                                                    td.warning warning
+                                                    td.danger danger
+                                                tr
+                                                    td 2
+                                                    td.active active
+                                                    td.success success
+                                                    td.warning warning
+                                                    td.danger danger
+                                                tr
+                                                    td 3
+                                                    td.active active
+                                                    td.success success
+                                                    td.warning warning
+                                                    td.danger danger
+                                                tr
+                                                    td 4
+                                                    td.active active
+                                                    td.success success
+                                                    td.warning warning
+                                                    td.danger danger
+                            // END SAMPLE TABLE PORTLET
+                        .col-md-6
+                            // BEGIN SAMPLE TABLE PORTLET
+                            .portlet.box.danger
+                                .portlet-title
+                                    .caption
+                                        i.livicon(data-name='pencil', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                                        |                                     Bootstrap Table
+                                .portlet-body
+                                    .table-scrollable
+                                        table.table.table-striped.table-bordered.table-advance.table-hover
+                                            thead
+                                                tr
+                                                    th
+                                                        i.fa.fa-briefcase
+                                                        |                                                     Company
+                                                    th.hidden-xs
+                                                        i.fa.fa-user
+                                                        |                                                     Contact
+                                                    th
+                                                        i.fa.fa-shopping-cart
+                                                        |                                                     Total
+                                                    th
+                                            tbody
+                                                tr
+                                                    td.highlight
+                                                        .success
+                                                        a(href='#') HP
+                                                    td.hidden-xs Ramos
+                                                    td 2560.60$
+                                                    td
+                                                        a.btn.default.btn-xs.purple(href='#')
+                                                            i.fa.fa-edit
+                                                            |                                                         Edit
+                                                tr
+                                                    td.highlight
+                                                        .info
+                                                        a(href='#') Google
+                                                    td.hidden-xs Adam
+                                                    td 560.60$
+                                                    td
+                                                        a.btn.default.btn-xs.black(href='#')
+                                                            i.fa.fa-trash-o
+                                                            |                                                         Delete
+                                                tr
+                                                    td.highlight
+                                                        .success
+                                                        a(href='#') Apple
+                                                    td.hidden-xs Daniel
+                                                    td 3460.60$
+                                                    td
+                                                        a.btn.default.btn-xs.purple(href='#')
+                                                            i.fa.fa-edit
+                                                            |                                                         Edit
+                                                tr
+                                                    td.highlight
+                                                        .warning
+                                                        a(href='#') Microsoft
+                                                    td.hidden-xs Nick
+                                                    td 2560.60$
+                                                    td
+                                                        a.btn.default.btn-xs.blue(href='#')
+                                                            i.fa.fa-share
+                                                            |                                                         Share
+                            // END SAMPLE TABLE PORTLET
+                // content
+            // right-side
+        // ./wrapper
+        a#back-to-top.btn.btn-primary.btn-lg.back-to-top(href='#', role='button', title='Return to top', data-toggle='tooltip', data-placement='left')
+            i.livicon(data-name='plane-up', data-size='18', data-loop='true', data-c='#fff', data-hc='white')
+        // global js
+        script(src='/backend/js/jquery-1.11.3.min.js', type='text/javascript')
+        script(src='/backend/js/bootstrap.min.js', type='text/javascript')
+        // livicons
+        script(src='/backend/vendors/livicons/minified/raphael-min.js', type='text/javascript')
+        script(src='/backend/vendors/livicons/minified/livicons-1.4.min.js', type='text/javascript')
+        script(src='/backend/js/josh.js', type='text/javascript')
+        script(src='/backend/js/metisMenu.js', type='text/javascript')
+        script(src='/backend/vendors/holder/holder.js', type='text/javascript')
+        // end of global js
