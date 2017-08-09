@@ -7,6 +7,11 @@ let path = require('path');
 let app = express();
 
 let mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/timlaigiayto');
+
+app.use(require('body-parser').urlencoded({extended : true}));
 require('dotenv').config();
 app.use(express.static('public'));
 
