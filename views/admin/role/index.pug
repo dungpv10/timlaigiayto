@@ -1,0 +1,36 @@
+extends ../layouts/table
+
+block content
+    .col-md-12
+        // BEGIN SAMPLE TABLE PORTLET
+        .portlet.box.primary
+            .portlet-title
+                .caption
+                    i.livicon(data-name='camera-alt', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                    |                                     Simple Table
+            .portlet-body
+                .ds
+                    table.table.table-hover#list
+                        thead
+                            tr
+                                th #
+                                th(style="width:50%") Tên
+                                th Thao tác
+                        tbody
+                            if roles.length != 0
+                                - var link = '/admin/roles/'
+                                each role, index in roles
+                                    tr
+                                        td= index + 1
+                                        td= role.name
+                                        td
+                                            .col-md-3
+                                                a.btn.btn-sm.btn-success(href=link + role._id) Chỉnh sửa
+                                            .col-md-3
+                                                form(action=link, method = 'POST')
+                                                    input(type='hidden', value=role._id, name='id')
+                                                    button.btn.btn-sm.btn-warning(type="submit") Xóa
+                            else
+                                tr
+                                    td.text-center(colspan=3) Chưa có quyền
+

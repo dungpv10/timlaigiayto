@@ -6,6 +6,6 @@ let userRouter = require('./user');
 let roleRouter = require('./role');
 
 router.use('/users', userRouter);
-router.use('/permission', roleRouter);
+router.use('/roles', roleRouter);
 
 module.exports = router;

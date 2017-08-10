@@ -1,7 +1,4 @@
-extend ../layouts/main.pug
-
-block header_css
-    <link href="/backend/css/pages/tables.css" rel="stylesheet" type="text/css" />
+extends ../layouts/table
 
 block content
     .col-md-12
@@ -10,44 +7,33 @@ block content
             .portlet-title
                 .caption
                     i.livicon(data-name='camera-alt', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
-                    |                                     Simple Table
+                    |                                     Danh sách quản trị viên
             .portlet-body
-                .table-scrollable
-                    table.table.table-hover
+                .dsds
+                    table.table.table-hover#list
                         thead
                             tr
                                 th #
-                                th First Name
-                                th Last Name
-                                th Username
-                                th Status
+                                th Họ và tên
+                                th Email
+                                th Quyền
+                                th Trạng thái
+                                th Thao tác
                         tbody
-                            tr
-                                td 1
-                                td Airi Satou
-                                td Kelly
-                                td Satou124
-                                td
-                                    span.label.label-sm.label-success Approved
-                            tr
-                                td 2
-                                td Angelica
-                                td Ramos
-                                td Angelica343
-                                td
-                                    span.label.label-sm.label-info Pending
-                            tr
-                                td 3
-                                td Ashton
-                                td Cox
-                                td Cox111
-                                td
-                                    span.label.label-sm.label-warning Suspended
-                            tr
-                                td 4
-                                td Bradley
-                                td Greer
-                                td Bradley
-                                td
-                                    span.label.label-sm.label-danger Blocked
-        // END SAMPLE TABLE PORTLET
+                            - var link = '/admin/users/'
+                            if users.length != 0
+                                each user, index in users
+                                    tr
+                                        td= index + 1
+                                        td= user.fullName
+                                        td= user.email
+                                        td= user.role.name
+                                        td
+                                            span.label.label-sm(class=user.status == 0 ? 'label-danger' : 'label-success')= user.statusName
+                                        td
+                                            .col-md-3
+                                                a.btn.btn-sm.btn-success(href=link + user._id) Chỉnh sửa
+                                            .col-md-3
+                                                form(action=link, method = 'POST')
+                                                    input(type='hidden', value=user._id, name='id')
+                                                    button.btn.btn-sm.btn-warning(type="submit") Xóa
