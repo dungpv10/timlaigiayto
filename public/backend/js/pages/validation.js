@@ -101,3 +101,21 @@ $('#update-user').bootstrapValidator({
         }
     }
 });
+
+
+$('#create-category').bootstrapValidator({
+    fields : {
+        name : {
+            validators : {
+                notEmpty : {
+                    message : 'Vui lòng không để trống'
+                },
+                stringLength : {
+                    message : 'Tên danh mục phải lớn hơn 3 và nhỏ hơn 200 kí tự',
+                    min : 3,
+                    max: 200
+                }
+            }
+        }
+    }
+});

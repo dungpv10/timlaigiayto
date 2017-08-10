@@ -1,5 +1,6 @@
 extends ../layouts/table
 
+
 block content
     .col-md-12
         // BEGIN SAMPLE TABLE PORTLET
@@ -7,32 +8,28 @@ block content
             .portlet-title
                 .caption
                     i.livicon(data-name='camera-alt', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
-                    |                                     Danh sách quản trị viên
+                    |                                     Danh sách danh mục
             .portlet-body
-                .dsds
+                .ds
                     table.table.table-hover#list
                         thead
                             tr
                                 th #
-                                th Họ và tên
-                                th Email
-                                th Quyền
-                                th Trạng thái
+                                th Tên
+                                th Slug
                                 th Thao tác
                         tbody
-                            - var link = '/admin/users/'
-                            each user, index in users
+
+                            - var link = '/admin/categories/'
+                            each category, index in categories
                                 tr
                                     td= index + 1
-                                    td= user.fullName
-                                    td= user.email
-                                    td= user.role.name
-                                    td
-                                        span.label.label-sm(class=user.status == 0 ? 'label-danger' : 'label-success')= user.statusName
+                                    td= category.name
+                                    td= category.slug
                                     td
                                         .col-md-3
-                                            a.btn.btn-sm.btn-success(href=link + user._id) Chỉnh sửa
+                                            a.btn.btn-sm.btn-success(href=link + category._id) Chỉnh sửa
                                         .col-md-3
                                             form(action=link, method = 'POST')
-                                                input(type='hidden', value=user._id, name='id')
+                                                input(type='hidden', value=category._id, name='id')
                                                 button.btn.btn-sm.btn-warning(type="submit") Xóa

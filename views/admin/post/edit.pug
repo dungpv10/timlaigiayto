@@ -1,0 +1,50 @@
+extends ../layouts/form
+
+block sub_content
+    .panel.panel-success
+        .panel-heading
+            h3.panel-title
+                i.livicon(data-name='pacman', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                |                                 Tạo mới quản trị viên
+            span.pull-right.clickable
+                i.glyphicon.glyphicon-chevron-up
+        .panel-body
+            form#create-role.form-horizontal(action = "/admin/roles/update", method = "POST")
+                .form-group
+                    label.col-md-3.control-label.hidden-xs Tiêu đề bài viết
+                    .col-md-8
+                        input.form-control(type='text', name='title', placeholder='Tiêu đề bài viết')
+                        input(type='hidden', name='id')
+
+                .form-group
+                    label.col-md-3.control-label.hidden-xs Tên người mất đồ
+                    .col-md-8
+                        input.form-control(type='text', name='fullName', placeholder='Tên người mất đồ')
+
+                .form-group
+                    label.col-md-3.control-label.hidden-xs Số điện thoại
+                    .col-md-3
+                        input.form-control(type='text', name='numberPhone', placeholder='Số điện thoại')
+                    label.col-md-1.control-label.hidden-xs Email
+                    .col-md-4
+                        input.form-control(type='email', name='email', placeholder='Email')
+
+                .form-group
+                    label.col-md-3.control-label.hidden-xs Địa điểm rơi/nhặt được
+                    .col-md-8
+                        input.form-control(type='text', name='position', placeholder='Địa điểm rơi / nhặt được')
+                .form-group
+                    label.col-md-3.control-label.hidden-xs Danh mục tin
+                    .col-md-8
+                        select.form-control(name='categoryId')
+
+                .form-group
+                    label.col-md-3.control-label.hidden-xs.text-right Nội dung bài viết
+                    .col-md-8
+                        textarea.form-control#summernote(name='content', placeholder='Nội dung bài viết')
+
+                .clearfix
+
+                .form-group
+                    .col-md-offset-3.col-md-8
+                        button.btn.btn-primary(type='submit') Tạo mới

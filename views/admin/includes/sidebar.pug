@@ -3,7 +3,7 @@ section.sidebar
         // BEGIN SIDEBAR MENU
         ul#menu.page-sidebar-menu
             li
-                a(href='index.html')
+                a(href='/admin')
                     i.livicon(data-name='home', data-size='18', data-c='#418BCA', data-hc='#418BCA', data-loop='true')
                     span.title Dashboard
             li
@@ -13,14 +13,27 @@ section.sidebar
                     span.fa.arrow
                 ul.sub-menu
                     li
-                        a(href='notifications.html')
+                        a(href='/admin/posts')
                             i.fa.fa-angle-double-right
                             |                                         Danh sách
                     li
-                        a(href='session_timeout.html')
+                        a(href='/admin/posts/create')
                             i.fa.fa-angle-double-right
                             |                                         Tạo mới
-
+            li
+                a(href='#')
+                    i.livicon(data-name='move', data-c='#EF6F6C', data-hc='#EF6F6C', data-size='18', data-loop='true')
+                    span.title Danh mục
+                    span.fa.arrow
+                ul.sub-menu
+                    li
+                        a(href='/admin/categories')
+                            i.fa.fa-angle-double-right
+                            |                                         Danh sách
+                    li
+                        a(href='/admin/categories/create')
+                            i.fa.fa-angle-double-right
+                            |                                         Tạo mới
             li
                 a(href='#')
                     i.livicon(data-name='barchart', data-size='18', data-c='#00bc8c', data-hc='#00bc8c', data-loop='true')

@@ -36,6 +36,9 @@ module.exports = {
     },
 
     postUpdate: (req, res) => {
-        User.updateById(req.body.id, req.body);
+
+        //Continue
+        res.send('Continue');
+        // User.updateById(req.body.id, req.body);
     }
 };
