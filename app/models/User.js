@@ -48,15 +48,51 @@ UserSchema.statics.findOneById = function(id){
     });
 };
 
-UserSchema.statics.updateById = function(id, data){
-    async.waterfall([
-        function(callback){
-            callback(null, id);
-        }
-    ], function(err, result){
-        console.log(result);
+UserSchema.statics.genPassword = function(password){
+    if(password === '') return '';
+    return new Promise(function(resolve, reject) {
+        bcrypt.genSalt(saltRounds, function(err, salt) {
+            if(err) reject(err);
+            bcrypt.hash(password, salt, function(err, hashPassword){
+                if(err) reject(err);
+                else reject(hashPassword);
+            });
+        });
     });
 };
+
+UserSchema.statics.updateById = function(id, data){
+    async.waterfall([
+        (callback) => {
+            this.genPassword(data.password).then(hashPassword => {
+                data.password = hashPassword;
+                callback(null, data);
+            }).catch(err => {
+                callback(new Error('Waterfall fail ' + err.message));
+            });
+        },
+        (data, callback) => {
+            console.log('fun 2 : ' + data);
+            callback(null, data);
+        }
+    ], (err, result) => {
+        console.log('Result : ' + result);
+    });
+};
+
+
+UserSchema.pre('save', function(next){
+    let user = this;
+    if(!user.isModified()) next();
+    bcrypt.genSalt(saltRounds, (err, salt) => {
+        if(err) return next(err);
+        bcrypt.hash(user.password, salt, (err, hashPassword) => {
+            if(err) return next(err);
+            user.password = hashPassword;
+            next();
+        });
+    });
+});
 
 UserSchema.virtual('fullName').get(function(){
     return this.firstName + ' ' + this.lastName;
