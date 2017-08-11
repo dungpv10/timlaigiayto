@@ -16,7 +16,6 @@ block sub_content
                     label.col-md-3.control-label.hidden-xs Tiêu đề bài viết
                     .col-md-8
                         input.form-control(type='text', name='title', placeholder='Tiêu đề bài viết')
-                        input(type='hidden', name='id')
 
                 .form-group
                     label.col-md-3.control-label.hidden-xs Tên người mất đồ
@@ -34,11 +33,13 @@ block sub_content
                 .form-group
                     label.col-md-3.control-label.hidden-xs Địa điểm rơi/nhặt được
                     .col-md-8
-                        input.form-control(type='text', name='position', placeholder='Địa điểm rơi / nhặt được')
+                        select.form-control.select2(name='position')
+                            each province in provinces
+                                option(value=province)= province
                 .form-group
                     label.col-md-3.control-label.hidden-xs Danh mục tin
                     .col-md-8
-                        select.form-control(name='categoryId')
+                        select.form-control.select2(name='categoryId')
                             each category in categories
                                 option(value=category._id)= category.name
                 .form-group
@@ -49,8 +50,9 @@ block sub_content
                     label.col-md-3.control-label.hidden-xs.text-right Trạng thái
                     .col-md-8
                         each stat in postStatus
+                            - var checked = stat.id === 0 ? 'checked' : '';
                             label.checkbox-inline
-                                input(type='radio' name='status' value=stat.id)
+                                input(type='radio', name='status', value=stat.id, checked)
                                 span= stat.name
 
                 .clearfix

@@ -7,7 +7,7 @@ block content
             .portlet-title
                 .caption
                     i.livicon(data-name='camera-alt', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
-                    |                                     Simple Table
+                    |                                     Danh sách tin tức
             .portlet-body
                 .ds
                     table.table.table-hover#list
@@ -37,7 +37,9 @@ block content
                                     td
                                         span.label.label-sm(class=post.status == 0 ? 'label-danger' : 'label-success')= post.statusName
                                     td
-                                        a.btn.btn-sm.btn-success(href=link + post._id, style="float : left") Chỉnh sửa
-                                        form(action=link, method = 'POST', style="float:left")
+                                        a.btn.btn-sm.btn-success(href=link + post._id, style="float : left")
+                                            i.livicon(data-name="external-link" data-size="15" data-c="#fff" data-hc="#fff" data-loop="true")
+                                        form(action=link + post.id, method = 'POST', style="float:left")
                                             input(type='hidden', value=post._id, name='id')
-                                            button.btn.btn-sm.btn-warning(type="submit") Xóa
+                                            button.btn.btn-sm.btn-warning(type="submit")
+                                                i.livicon(data-name="trash" data-size="15" data-c="#fff" data-hc="#fff" data-loop="true")

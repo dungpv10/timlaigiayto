@@ -34,8 +34,8 @@ app.use('/admin', routerAdmin);
 /**
 * Connect to database
 */
-app.listen(process.env.PORT, function(err) {
+app.listen(process.env.PORT || 3000, function(err) {
 	if(err) console.log(err);
-	else console.log('Connect to server on port ' + process.env.PORT);
+	else console.log('Connect to server on port ' + process.env.PORT || 3000);
 });
 

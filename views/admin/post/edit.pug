@@ -11,13 +11,12 @@ block sub_content
             span.pull-right.clickable
                 i.glyphicon.glyphicon-chevron-up
         .panel-body
-            form#create-post.form-horizontal(action = "/admin/posts/create", method = "POST")
+            form#create-post.form-horizontal(action = "/admin/posts/update", method = "POST")
+                input(type="hidden", value=post.id, name="id")
                 .form-group
                     label.col-md-3.control-label.hidden-xs Tiêu đề bài viết
                     .col-md-8
                         input.form-control(type='text', name='title', placeholder='Tiêu đề bài viết', value=post.title)
-                        input(type='hidden', name='id')
-
                 .form-group
                     label.col-md-3.control-label.hidden-xs Tên người mất đồ
                     .col-md-8
@@ -34,11 +33,14 @@ block sub_content
                 .form-group
                     label.col-md-3.control-label.hidden-xs Địa điểm rơi/nhặt được
                     .col-md-8
-                        input.form-control(type='text', name='position', placeholder='Địa điểm rơi / nhặt được', value=post.position)
+                        select.form-control.select2(name='position')
+                            each province in provinces
+                                - var selected = post.province === province
+                                option(value=province, selected = selected)= province
                 .form-group
                     label.col-md-3.control-label.hidden-xs Danh mục tin
                     .col-md-8
-                        select.form-control(name='categoryId')
+                        select.form-control.select2(name='categoryId')
                             each category in categories
                                 option(value=category._id, selected = category._id === post.categoryId)= category.name
                 .form-group
@@ -58,6 +60,6 @@ block sub_content
 
                 .form-group
                     .col-md-offset-3.col-md-8
-                        button.btn.btn-primary(type='submit') Tạo mới
+                        button.btn.btn-primary(type='submit') Cập nhật
 
 block sub_footer_js

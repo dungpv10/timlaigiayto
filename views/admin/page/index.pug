@@ -7,29 +7,27 @@ block content
             .portlet-title
                 .caption
                     i.livicon(data-name='camera-alt', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
-                    |                                     Simple Table
+                    |                                     Danh sách tin tức
             .portlet-body
                 .ds
                     table.table.table-hover#list
                         thead
                             tr
-                                th #
-                                th(style="width:50%") Tên
+                                th Tiêu đề
+                                th Xem trang
                                 th Thao tác
                         tbody
 
-                            - var link = '/admin/roles/'
-                            each role, index in roles
+                            - var link = '/admin/pages/'
+                            each page, index in pages
                                 tr
-                                    td= index + 1
-                                    td= role.name
+                                    td= page.title
                                     td
-                                        a.btn.btn-sm.btn-success(href=link + role._id, style="float: left")
+                                        span.label.label-sm.label-success= domain + '/' + page.slug
+                                    td
+                                        a.btn.btn-sm.btn-success(href=link + page._id, style="float : left")
                                             i.livicon(data-name="external-link" data-size="15" data-c="#fff" data-hc="#fff" data-loop="true")
-
-                                        form(action=link, method = 'POST', style="float: left")
-                                            input(type='hidden', value=role._id, name='id')
+                                        form(action=link + page.id, method = 'POST', style="float:left")
+                                            input(type='hidden', value=page._id, name='id')
                                             button.btn.btn-sm.btn-warning(type="submit")
                                                 i.livicon(data-name="trash" data-size="15" data-c="#fff" data-hc="#fff" data-loop="true")
-
-

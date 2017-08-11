@@ -196,3 +196,31 @@ $('#create-post').bootstrapValidator({
 });
 
 
+$('#create-page').bootstrapValidator({
+    fields : {
+        title : {
+            validators : {
+                notEmpty : {
+                    message : 'Vui lòng không để trống'
+                },
+                stringLength : {
+                    message : 'Tên danh mục phải lớn hơn 10 và nhỏ hơn 200 kí tự',
+                    min : 10,
+                    max : 200
+                }
+            }
+        },
+        content : {
+            validators : {
+                notEmpty : {
+                    message : 'Vui lòng không để trống'
+                },
+                stringLength : {
+                    message : 'Nội dung phải lớn hơn 20 và nhỏ hơn 255 kí tự',
+                    min : 20,
+                    max: 255
+                }
+            }
+        }
+    }
+});

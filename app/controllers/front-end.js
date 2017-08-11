@@ -1,7 +1,7 @@
 
 let router = {
 	index : (req, res) => {
-		res.renderFile('/admin/user/index.html');
+		res.render('front-end/index/index');
 	}
 };
 
