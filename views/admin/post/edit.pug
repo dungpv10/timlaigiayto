@@ -1,50 +1,63 @@
 extends ../layouts/form
 
+block sub_header_css
+
 block sub_content
     .panel.panel-success
         .panel-heading
             h3.panel-title
                 i.livicon(data-name='pacman', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
-                |                                 Tạo mới quản trị viên
+                |                                 Tạo mới tin tức
             span.pull-right.clickable
                 i.glyphicon.glyphicon-chevron-up
         .panel-body
-            form#create-role.form-horizontal(action = "/admin/roles/update", method = "POST")
+            form#create-post.form-horizontal(action = "/admin/posts/create", method = "POST")
                 .form-group
                     label.col-md-3.control-label.hidden-xs Tiêu đề bài viết
                     .col-md-8
-                        input.form-control(type='text', name='title', placeholder='Tiêu đề bài viết')
+                        input.form-control(type='text', name='title', placeholder='Tiêu đề bài viết', value=post.title)
                         input(type='hidden', name='id')
 
                 .form-group
                     label.col-md-3.control-label.hidden-xs Tên người mất đồ
                     .col-md-8
-                        input.form-control(type='text', name='fullName', placeholder='Tên người mất đồ')
+                        input.form-control(type='text', name='fullName', placeholder='Tên người mất đồ', value=post.fullName)
 
                 .form-group
                     label.col-md-3.control-label.hidden-xs Số điện thoại
                     .col-md-3
-                        input.form-control(type='text', name='numberPhone', placeholder='Số điện thoại')
+                        input.form-control(type='text', name='numberPhone', placeholder='Số điện thoại', value=post.numberPhone)
                     label.col-md-1.control-label.hidden-xs Email
                     .col-md-4
-                        input.form-control(type='email', name='email', placeholder='Email')
+                        input.form-control(type='email', name='email', placeholder='Email', value=post.email)
 
                 .form-group
                     label.col-md-3.control-label.hidden-xs Địa điểm rơi/nhặt được
                     .col-md-8
-                        input.form-control(type='text', name='position', placeholder='Địa điểm rơi / nhặt được')
+                        input.form-control(type='text', name='position', placeholder='Địa điểm rơi / nhặt được', value=post.position)
                 .form-group
                     label.col-md-3.control-label.hidden-xs Danh mục tin
                     .col-md-8
                         select.form-control(name='categoryId')
-
+                            each category in categories
+                                option(value=category._id, selected = category._id === post.categoryId)= category.name
                 .form-group
                     label.col-md-3.control-label.hidden-xs.text-right Nội dung bài viết
                     .col-md-8
-                        textarea.form-control#summernote(name='content', placeholder='Nội dung bài viết')
+                        textarea.form-control#summernote(name='content', placeholder='Nội dung bài viết')= post.content
+                .form-group
+                    label.col-md-3.control-label.hidden-xs.text-right Trạng thái
+                    .col-md-8
+                        each stat in postStatus
+                            - var checked = stat.id === post.status ? 'checked' : ''
+                            label.checkbox-inline
+                                input(type='radio', name='status', value = stat.id, checked)
+                                span= stat.name
 
                 .clearfix
 
                 .form-group
                     .col-md-offset-3.col-md-8
                         button.btn.btn-primary(type='submit') Tạo mới
+
+block sub_footer_js

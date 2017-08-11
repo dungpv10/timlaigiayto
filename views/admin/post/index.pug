@@ -1,0 +1,43 @@
+extends ../layouts/table
+
+block content
+    .col-md-12
+        // BEGIN SAMPLE TABLE PORTLET
+        .portlet.box.primary
+            .portlet-title
+                .caption
+                    i.livicon(data-name='camera-alt', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                    |                                     Simple Table
+            .portlet-body
+                .ds
+                    table.table.table-hover#list
+                        thead
+                            tr
+
+                                th Tiêu đề
+                                th Người dùng
+                                th Số điện thoại
+                                th Email
+                                th Địa điểm
+                                th Danh mục
+                                th Trạng thái
+                                th Thao tác
+                        tbody
+
+                            - var link = '/admin/posts/'
+                            each post, index in posts
+                                tr
+
+                                    td= post.title
+                                    td= post.fullName
+                                    td= post.numberPhone
+                                    td= post.email
+                                    td= post.position
+                                    td= post.categoryId.name
+                                    td
+                                        span.label.label-sm(class=post.status == 0 ? 'label-danger' : 'label-success')= post.statusName
+                                    td
+                                        a.btn.btn-sm.btn-success(href=link + post._id, style="float : left") Chỉnh sửa
+                                        form(action=link, method = 'POST', style="float:left")
+                                            input(type='hidden', value=post._id, name='id')
+                                            button.btn.btn-sm.btn-warning(type="submit") Xóa

@@ -30,9 +30,9 @@ block content
                                     td
                                         span.label.label-sm(class=user.status == 0 ? 'label-danger' : 'label-success')= user.statusName
                                     td
-                                        .col-md-3
-                                            a.btn.btn-sm.btn-success(href=link + user._id) Chỉnh sửa
-                                        .col-md-3
-                                            form(action=link, method = 'POST')
-                                                input(type='hidden', value=user._id, name='id')
-                                                button.btn.btn-sm.btn-warning(type="submit") Xóa
+
+                                        a.btn.btn-sm.btn-success(href=link + user._id, style='float: left') Chỉnh sửa
+
+                                        form(action=link, method = 'POST', style='float: left')
+                                            input(type='hidden', value=user._id, name='id')
+                                            button.btn.btn-sm.btn-warning(type="submit") Xóa

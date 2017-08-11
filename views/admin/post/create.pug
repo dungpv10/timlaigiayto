@@ -7,11 +7,11 @@ block sub_content
         .panel-heading
             h3.panel-title
                 i.livicon(data-name='pacman', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
-                |                                 Tạo mới quản trị viên
+                |                                 Tạo mới tin tức
             span.pull-right.clickable
                 i.glyphicon.glyphicon-chevron-up
         .panel-body
-            form#create-role.form-horizontal(action = "/admin/roles/update", method = "POST")
+            form#create-post.form-horizontal(action = "/admin/posts/create", method = "POST")
                 .form-group
                     label.col-md-3.control-label.hidden-xs Tiêu đề bài viết
                     .col-md-8
@@ -39,11 +39,19 @@ block sub_content
                     label.col-md-3.control-label.hidden-xs Danh mục tin
                     .col-md-8
                         select.form-control(name='categoryId')
-
+                            each category in categories
+                                option(value=category._id)= category.name
                 .form-group
                     label.col-md-3.control-label.hidden-xs.text-right Nội dung bài viết
                     .col-md-8
                         textarea.form-control#summernote(name='content', placeholder='Nội dung bài viết')
+                .form-group
+                    label.col-md-3.control-label.hidden-xs.text-right Trạng thái
+                    .col-md-8
+                        each stat in postStatus
+                            label.checkbox-inline
+                                input(type='radio' name='status' value=stat.id)
+                                span= stat.name
 
                 .clearfix
 
