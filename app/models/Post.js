@@ -1,8 +1,13 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-let Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
+
+
+
+const _ = require('lodash');
 
 let func = require('../libs/functions');
+const Str = require('../libs/Str');
 
 let PostSchema = new Schema({
     title: {type: String, required: true},
@@ -65,8 +70,59 @@ PostSchema.statics.delete = function(id){
     });
 };
 
+
+PostSchema.statics.getByPosition = function(){
+    return new Promise((resolve, reject) => {
+        this.aggregate([{
+            $group : {
+                _id : '$position',
+                count: {$sum : 1}
+            }
+        }], function(err, results){
+            if(err) reject(err);
+            else{
+                resolve(results);
+            }
+        });
+    });
+
+};
+
+
+//Count new article today
+PostSchema.statics.countNewPost = function(dateFilter = {}){
+    return new Promise((resolve, reject) => {
+        let condition = {status : 1};
+        if(!_.isEmpty(dateFilter)) condition = _.extend(condition, {createdAt : {$gte : dateFilter.start, $lte : dateFilter.end}});
+
+        this.count(condition, (err, count) => {
+            if(err) reject(err);
+            else resolve(count);
+        });
+    });
+};
+
+
+PostSchema.statics.getNewPosts = function(dateFilter = {}){
+    return new Promise((resolve, reject) => {
+        let condition = {status : 1};
+        if(!_.isEmpty(dateFilter)) condition = _.extend(condition, {createdAt : {$gte : dateFilter.start, $lte : dateFilter.end}});
+        this.find(condition).populate('categoryId').limit(10).exec((err, posts) => {
+            if(err) reject(err);
+            else resolve(posts);
+        });
+    });
+};
+
+
 PostSchema.virtual('statusName').get(function () {
     return func.getPostStatusName(this.status);
+});
+
+
+PostSchema.pre('save', (next) => {
+    this.slug = Str.slugify(this.name);
+    next();
 });
 
 let Post = mongoose.model('Post', PostSchema);

@@ -187,9 +187,9 @@
              decimal : '.' // character to use as a decimal
          };
 
-     var demo = new CountUp("myTargetElement1", 12.52, 9500, 0, 6, options);
+     var demo = new CountUp("total-new-posts", 12.52, totalNewPost, 0, 0, options);
         demo.start();
-        var demo = new CountUp("myTargetElement2", 1, 100, 0, 6, options);
+        var demo = new CountUp("total-new-email", 1, totalRegisterEmail, 0, 6, options);
         demo.start();
         var demo = new CountUp("myTargetElement3", 24.02, 5000, 0, 6, options);
         demo.start();

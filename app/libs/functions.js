@@ -1,4 +1,5 @@
 const params = require('../../configs/params');
+
 let lib = {
     getName : function(arr, id) {
         const length = arr.length;
@@ -15,6 +16,7 @@ let lib = {
     getPostStatusName : function(idPostStatus){
         return this.getName(params.postStatus, idPostStatus);
     }
+
 };
 
 

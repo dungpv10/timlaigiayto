@@ -1,0 +1,58 @@
+.row
+    .col-lg-6.col-md-6.col-sm-6
+        .panel.panel-border
+            .panel-heading.border-light
+                h4.panel-title
+                    i.livicon(data-name='calendar', data-size='16', data-loop='true', data-c='#333', data-hc='#333')
+                    |                                     Tin mới trong ngày
+                span.pull-right
+                    i.glyphicon.glyphicon-chevron-up.showhide.clickable
+                    i.glyphicon.glyphicon-remove.removepanel.clickable
+            .panel-body
+                .table-scrollable
+                    table.table.table-hover
+                        thead
+                            tr
+                                th(class="text-left") #
+                                th(class="text-left") Tiêu đề
+                                th(class="text-left") Danh mục
+                        tbody
+                            if(!!listData.posts.length)
+                                each post, index in listData.posts
+                                    tr
+                                        td= index + 1
+                                        td= post.title
+                                        td= post.categoryId.name
+
+    // To do list
+    .col-lg-6.col-md-6.col-sm-6
+        .panel.panel-primary.todolist
+            .panel-heading.border-light
+                h4.panel-title
+                    i.livicon(data-name='medal', data-size='18', data-color='white', data-hc='white', data-l='true')
+                    |                                     Email mới
+            .panel-body.nopadmar
+                form.list_of_items
+                    .todolist_list.showactions
+                        .col-md-8.col-sm-8.col-xs-8.nopadmar.custom_textbox1
+                            .todoitemcheck.checkbox-custom
+                                input.striked.large(type='checkbox')
+                            .todotext.todoitem Meeting with CEO
+                        .col-md-4.col-sm-4.col-xs-4.pull-right.showbtns.todoitembtns
+                            a.todoedit(href='#')
+                                span.glyphicon.glyphicon-pencil
+                            |                                             |
+                            a.tododelete.redcolor(href='#')
+                                span.glyphicon.glyphicon-trash
+
+                    .todolist_list.showactions
+                        .col-md-8.col-sm-8.col-xs-8.nopadmar.custom_textbox1
+                            .todoitemcheck
+                                input.striked(type='checkbox')
+                            .todotext.todoitem Takeover Leads
+                        .col-md-4.col-sm-4.col-xs-4.pull-right.showbtns.todoitembtns
+                            a.todoedit(href='#')
+                                span.glyphicon.glyphicon-pencil
+                            |                                             |
+                            a.tododelete.redcolor(href='#')
+                                span.glyphicon.glyphicon-trash

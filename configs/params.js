@@ -4,6 +4,6 @@ module.exports.userStatus = [
 ];
 
 module.exports.postStatus = [
-    {id : 0, name : 'Đang ẩn'},
-    {id : 1, name : 'Đang hiển thị'}
+    {id : 0, name : 'Chưa duyệt'},
+    {id : 1, name : 'Đã duyệt'}
 ];

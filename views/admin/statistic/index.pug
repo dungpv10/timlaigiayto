@@ -1,0 +1,27 @@
+extends ../layouts/main
+block header_css
+    <link type="text/css" rel="stylesheet" href="/backend/css/pages/flot.css" />
+block content
+    .col-md-12
+        // BEGIN SAMPLE TABLE PORTLET
+        .portlet.box.primary
+            .portlet-title
+                .caption
+                    i.livicon(data-name='camera-alt', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                    |                                     Thống kê theo ngày
+            .portlet-body
+                .flotLegend#basicFlotLegend
+                .flotChart1#bar-chart-stacked
+
+block footer_js
+    script(type="text/javascript", src="/backend/vendors/charts/jquery.flot.min.js")
+    script(type="text/javascript", src="/backend/vendors/charts/jquery.flot.stack.js")
+    script(type="text/javascript", src="/backend/vendors/charts/jquery.flot.crosshair.js")
+    script(type="text/javascript", src="/backend/vendors/charts/jquery.flot.time.js")
+    script(type="text/javascript", src="/backend/vendors/charts/jquery.flot.selection.js")
+    script(type="text/javascript", src="/backend/vendors/charts/jquery.flot.symbol.js")
+    script(type="text/javascript", src="/backend/vendors/charts/jquery.flot.resize.js")
+    script(type="text/javascript", src="/backend/vendors/charts/jquery.flot.categories.js")
+    script(type="text/javascript", src="/backend/vendors/charts/jquery.flot.spline.js")
+    script(type="text/javascript", src="/backend/vendors/charts/jquery.flot.tooltip.js")
+    script(type="text/javascript", src="/backend/js/pages/customcharts.js")

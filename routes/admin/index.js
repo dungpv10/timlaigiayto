@@ -7,14 +7,18 @@ let roleRouter = require('./role');
 let postRouter = require('./post');
 let categoryRouter = require('./category');
 let pageRouter = require('./page');
-
+let statisticRouter = require('./statistic');
+let dashboardRouter = require('./dashboard');
 router.get('/', (req, res) => {
-    res.redirect('/admin/posts');
+    res.redirect('/admin/dashboard');
 });
+
+router.use('/', dashboardRouter);
 router.use('/users', userRouter);
 router.use('/roles', roleRouter);
 router.use('/posts', postRouter);
 router.use('/categories', categoryRouter);
 router.use('/pages', pageRouter);
+router.use('/statistics', statisticRouter);
 
 module.exports = router;
