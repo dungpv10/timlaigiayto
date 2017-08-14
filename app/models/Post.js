@@ -92,7 +92,7 @@ PostSchema.statics.getByPosition = function(){
 //Count new article today
 PostSchema.statics.countNewPost = function(dateFilter = {}){
     return new Promise((resolve, reject) => {
-        let condition = {status : 1};
+        let condition = {status : 0};
         if(!_.isEmpty(dateFilter)) condition = _.extend(condition, {createdAt : {$gte : dateFilter.start, $lte : dateFilter.end}});
 
         this.count(condition, (err, count) => {
@@ -105,7 +105,7 @@ PostSchema.statics.countNewPost = function(dateFilter = {}){
 
 PostSchema.statics.getNewPosts = function(dateFilter = {}){
     return new Promise((resolve, reject) => {
-        let condition = {status : 1};
+        let condition = {status : 0};
         if(!_.isEmpty(dateFilter)) condition = _.extend(condition, {createdAt : {$gte : dateFilter.start, $lte : dateFilter.end}});
         this.find(condition).populate('categoryId').limit(10).exec((err, posts) => {
             if(err) reject(err);

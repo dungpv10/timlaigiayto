@@ -191,10 +191,13 @@
         demo.start();
         var demo = new CountUp("total-new-email", 1, totalRegisterEmail, 0, 6, options);
         demo.start();
-        var demo = new CountUp("myTargetElement3", 24.02, 5000, 0, 6, options);
+        var demo = new CountUp("total-cash", 24.02, 0, 0, 6, options);
         demo.start();
-        var demo = new CountUp("myTargetElement4", 1254, 8000, 0, 6, options);
+        var demo = new CountUp("total-new-user", 1254, 0, 0, 6, options);
         demo.start();
+
+
+
         var demo = new CountUp("myTargetElement1.1", 1254, 98000, 0, 6, options);
         demo.start();
         var demo = new CountUp("myTargetElement1.2", 1254, 396000, 0, 6, options);
