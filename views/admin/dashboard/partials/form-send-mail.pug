@@ -1,0 +1,20 @@
+.col-md-12.col-sm-12
+    .panel.panel-danger
+        .panel-heading.border-light
+            h4.panel-title
+                i.livicon(data-name='mail', data-size='18', data-color='white', data-hc='white', data-l='true')
+                |                                     Gửi mail
+        .panel-body.no-padding
+            .compose.row
+                form(action = "/admin/send-mail", method="POST")
+                    label.col-md-3.hidden-xs Tới:
+                    input.col-md-9.col-xs-9(type='text', name="to", placeholder='Email người nhận', tabindex='1')
+                    .clear
+                    label.col-md-3.hidden-xs Chủ đề:
+                    input.col-md-9.col-xs-9(type='text', name="subject", tabindex='1', placeholder='Chủ đề tin nhắn')
+                    .clear
+                    .box-body
+                        textarea.textarea.textarea_home(placeholder='Nội dung email', name="text")
+                    br
+                    .pull-right
+                        button.btn.btn-danger(type="submit") Gửi

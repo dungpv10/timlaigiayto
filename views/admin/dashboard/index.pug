@@ -21,26 +21,7 @@ block content
     include ./partials/list
     .clearfix
     .row
-        .col-md-12.col-sm-12
-            .panel.panel-danger
-                .panel-heading.border-light
-                    h4.panel-title
-                        i.livicon(data-name='mail', data-size='18', data-color='white', data-hc='white', data-l='true')
-                        |                                     Gửi mail
-                .panel-body.no-padding
-                    .compose.row
-                        label.col-md-3.hidden-xs Tới:
-                        input.col-md-9.col-xs-9(type='text', placeholder='Email người nhận', tabindex='1')
-                        .clear
-                        label.col-md-3.hidden-xs Chủ đề:
-                        input.col-md-9.col-xs-9(type='text', tabindex='1', placeholder='Chủ đề tin nhắn')
-                        .clear
-                        .box-body
-                            form
-                                textarea.textarea.textarea_home(placeholder='Nội dung email')
-                        br
-                        .pull-right
-                            a.btn.btn-danger(href='#') Gửi
+        include ./partials/form-send-mail
 
 
 block footer_js

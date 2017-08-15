@@ -1,5 +1,10 @@
 let Post = require('../models/Post');
 let EmailRegister = require('../models/EmailRegister');
+
+
+let Mailer = require('../libs/Mailer');
+
+
 let dashboardController = {
     index : (req, res) => {
         let today = {
@@ -26,6 +31,11 @@ let dashboardController = {
                 }
             });
         }).catch(err => console.log(err));
+    },
+
+    sendMail : (req, res) => {
+        (new Mailer(req.body)).sendMail().then(info => res.redirect('back')).catch(err => console.log(err));
+        res.redirect('back')
     }
 };
 

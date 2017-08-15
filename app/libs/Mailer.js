@@ -8,12 +8,12 @@ class Mailer {
             port: process.env.MAIL_PORT || 465,
             secure: process.env.MAIL_HOST || true,
             auth: {
-                user: process.env.MAIL_USER || 'dungpv10@gmail.com',
+                user: process.env.MAIL_USER || 'dungpv20@gmail.com',
                 pass: process.env.MAIL_PASS || ''
             }
         });
         this.options = Object.assign({
-            from : '', to : '', subject : '', text : '', html : ''
+            from : '' || process.env.MAIL_USER || 'dungpv20@gmail.com', to : '', subject : '', text : '', html : ''
         }, options);
     }
 
