@@ -11,10 +11,19 @@ let Hash = {
                 if(err) reject(err);
                 bcrypt.hash(password, salt, function(err, hashPassword){
                     if(err) reject(err);
-                    else reject(hashPassword);
+                    else resolve(hashPassword);
                 });
             });
         });
+    },
+    compare : (password, hashPassword) => {
+        return new Promise((resolve, reject) => {
+            bcrypt.compare(password, hashPassword,(err, result) =>{
+                if(err) return reject(err);
+                return resolve(result);
+            });
+        });
+
     }
 };
 

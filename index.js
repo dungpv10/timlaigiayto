@@ -19,6 +19,14 @@ app.use(express.static('public'));
 
 app.set('view engine', 'pug');
 
+const session = require('express-session');
+
+app.use(session({
+    secret: 'Tim lai giay to',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
 
 
 /**

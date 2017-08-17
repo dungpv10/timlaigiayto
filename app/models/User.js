@@ -80,11 +80,10 @@ UserSchema.statics.updateById = function(id, data){
     });
 };
 
-UserSchema.statics.findByEmail = function(email){
+UserSchema.statics.authenticate = function(data){
     return new Promise((resolve, reject) => {
-        this.find({email : email}, (err, user) => {
+        this.findOne(data, (err, user) => {
             if(err) return reject(err);
-
             return resolve(user);
         });
     });
