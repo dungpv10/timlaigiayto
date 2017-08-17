@@ -9,6 +9,7 @@ let categoryRouter = require('./category');
 let pageRouter = require('./page');
 let statisticRouter = require('./statistic');
 let dashboardRouter = require('./dashboard');
+let loginRouter = require('./login');
 router.get('/', (req, res) => {
     res.redirect('/admin/dashboard');
 });
@@ -20,5 +21,6 @@ router.use('/posts', postRouter);
 router.use('/categories', categoryRouter);
 router.use('/pages', pageRouter);
 router.use('/statistics', statisticRouter);
+router.use('/login', loginRouter);
 
 module.exports = router;

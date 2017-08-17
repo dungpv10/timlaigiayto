@@ -80,6 +80,15 @@ UserSchema.statics.updateById = function(id, data){
     });
 };
 
+UserSchema.statics.findByEmail = function(email){
+    return new Promise((resolve, reject) => {
+        this.find({email : email}, (err, user) => {
+            if(err) return reject(err);
+
+            return resolve(user);
+        });
+    });
+};
 
 UserSchema.pre('save', function(next){
     let user = this;
