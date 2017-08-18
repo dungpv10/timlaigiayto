@@ -36,6 +36,8 @@ let routerFrontEnd = require(path.join(__dirname, 'routes/front-end/index'));
 let routerAdmin = require(path.join(__dirname, 'routes/admin/index'));
 
 app.use('/', routerFrontEnd);
+
+let auth = require('./app/middlewares/auth');
 app.use('/admin', routerAdmin);
 
 /**
