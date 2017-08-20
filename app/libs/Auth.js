@@ -22,8 +22,8 @@ let Auth = {
                 callback(null, result, user)
             }).catch(err => callback(err))
         ], function (err, result, user) {
-            if (err) console.log(err);
-            else return cb(result, user);
+            if (err) return console.log(err);
+            return cb(result, user);
         });
     }
 };

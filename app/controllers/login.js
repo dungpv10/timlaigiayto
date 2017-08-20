@@ -2,7 +2,7 @@
 let Auth = require('../libs/Auth');
 let LoginController = {
     index: (req, res) => {
-        if(req.session.userLogged) return res.redirect('/admin');
+        if(req.session.userLogged !== undefined) return res.redirect('/admin');
         res.render('auth/login');
     },
 
