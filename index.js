@@ -2,49 +2,50 @@
 /**
 * Require all module
 */
-let express = require('express');
-let path = require('path');
-let app = express();
 
-let mongoose = require('mongoose');
+let connection = require('./app/libs/database/connection');
+connection.init().then(connection => {
+    let express = require('express');
+    let path = require('path');
+    let app = express();
 
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/timlaigiayto');
+    const bodyParser = require('body-parser');
+    bodyParser.json({limit : '1000kb'});
+    app.use(bodyParser.urlencoded({extended : true}));
+    require('dotenv').config();
+    app.use(express.static('public'));
 
-const bodyParser = require('body-parser');
-bodyParser.json({limit : '1000kb'});
-app.use(bodyParser.urlencoded({extended : true}));
-require('dotenv').config();
-app.use(express.static('public'));
-
-app.set('view engine', 'pug');
-
-const session = require('express-session');
-
-app.use(session({
-    secret: 'Tim lai giay to',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-}));
+    app.set('view engine', 'pug');
 
 
-/**
-* middleware for router
-*/
-let routerFrontEnd = require(path.join(__dirname, 'routes/front-end/index'));
-let routerAdmin = require(path.join(__dirname, 'routes/admin/index'));
 
-app.use('/', routerFrontEnd);
+    const cookieParser = require('cookie-parser');
+    app.use(cookieParser());
 
-let auth = require('./app/middlewares/auth');
-app.use('/admin', routerAdmin);
+    const session = require('express-session');
+    app.use(session({
+        secret: 'Timlaigiayto',
+        resave: false,
+        saveUninitialized: true,
+        cookie: { secure: false }
+    }));
 
-/**
-* Connect to database
-*/
-app.listen(process.env.PORT || 3000, function(err) {
-	if(err) console.log(err);
-	else console.log('Connect to server on port ' + process.env.PORT || 3000);
-});
+    /**
+     * middleware for router
+     */
+    let routerFrontEnd = require(path.join(__dirname, 'routes/front-end/index'));
+    let routerAdmin = require(path.join(__dirname, 'routes/admin/index'));
+
+    app.use('/', routerFrontEnd);
+    app.use('/admin', routerAdmin);
+
+    /**
+     * Connect to database
+     */
+    app.listen(process.env.PORT || 3000, function(err) {
+        if(err) console.log(err);
+        else console.log('Connect to server on port ' + process.env.PORT || 3000);
+    });
+}).catch((err) => console.log(err));
+
 
