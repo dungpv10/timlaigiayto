@@ -51,7 +51,7 @@ block sub_content
                     label.col-md-3.control-label.hidden-xs.text-right Trạng thái
                     .col-md-8
                         each stat in postStatus
-                            - var checked = stat.id === post.status ? 'checked' : ''
+                            - var checked = (stat.id === post.status) ? 'checked' : ''
                             label.checkbox-inline
                                 input(type='radio', name='status', value = stat.id, checked)
                                 span= stat.name

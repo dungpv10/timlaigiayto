@@ -1,0 +1,32 @@
+﻿extends ../layouts/table
+
+block content
+    .col-md-12
+        .portlet.box.primary
+            .portlet-title
+                .caption
+                    i.livicon(data-name='camera-alt', data-size='16', data-loop='true', data-c='#fff', data-hc='white')
+                    |                                     Danh sách tin tức
+            .portlet-body
+                .ds
+                    table.table.table-hover#list
+                        thead
+                            tr
+                                th Tiêu đề
+                                th Nội dung
+                                th Ngày tạo
+                                th Thao tác
+                        tbody
+                            - var link = '/admin/emails/'
+                            each email, index in emails
+                                tr
+                                    td= email.title
+                                    td= email.content
+                                    td= email.createdAt
+                                    td
+                                        a.btn.btn-sm.btn-success(href=link + email._id, style="float : left")
+                                            i.livicon(data-name="external-link" data-size="15" data-c="#fff" data-hc="#fff" data-loop="true")
+                                        form(action=link + email.id, method = 'POST', style="float:left")
+                                            input(type='hidden', value=email._id, name='id')
+                                            button.btn.btn-sm.btn-warning(type="submit")
+                                                i.livicon(data-name="trash" data-size="15" data-c="#fff" data-hc="#fff" data-loop="true")

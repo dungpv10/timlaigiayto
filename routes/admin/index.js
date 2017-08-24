@@ -1,4 +1,3 @@
-
 let express = require('express');
 
 let router = express.Router();
@@ -11,6 +10,7 @@ let pageRouter = require('./page');
 let statisticRouter = require('./statistic');
 let dashboardRouter = require('./dashboard');
 let loginRouter = require('./login');
+let logOutRouter = require('./logout');
 let emailRouter = require('./email_register');
 
 router.use('/login', loginRouter);
@@ -18,11 +18,13 @@ router.use('/login', loginRouter);
 let auth = require('../../app/middlewares/auth');
 router.use(auth.check());
 
+router.use('/logout', logOutRouter);
+
 router.use(auth.isAdmin());
+
 router.get('/', (req, res) => {
     res.redirect('/admin/dashboard');
 });
-
 router.use('/', dashboardRouter);
 router.use('/users', userRouter);
 router.use('/roles', roleRouter);

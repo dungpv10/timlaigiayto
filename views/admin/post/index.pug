@@ -20,6 +20,7 @@ block content
                                 th Email
                                 th Địa điểm
                                 th Danh mục
+                                th Ngày tạo
                                 th Trạng thái
                                 th Thao tác
                         tbody
@@ -34,6 +35,7 @@ block content
                                     td= post.email
                                     td= post.position
                                     td= post.categoryId.name
+                                    td= post.getCreatedAt
                                     td
                                         span.label.label-sm(class=post.status == 0 ? 'label-danger' : 'label-success')= post.statusName
                                     td

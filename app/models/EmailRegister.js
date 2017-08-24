@@ -32,6 +32,16 @@ EmailSchema.statics.getNewEmailRegister = function(filterDate){
     });
 };
 
+
+EmailSchema.statics.getAll = function(){
+    return new Promise((resolve, reject) => {
+        this.find({}, (err, emails) => {
+            if (err) return reject(err);
+            return resolve(emails);
+        });
+    });
+}
+
 const EmailRegister = mongoose.model('EmailRegister', EmailSchema);
 
 module.exports = EmailRegister;

@@ -24,7 +24,7 @@ let Auth = {
             (user, callback) => {
                 Hash.compare(data.password, user.password)
                     .then(result => callback(null, result, user))
-                    .catch(err => callback(err))
+                    .catch(err => callback(err, null, null))
             }
 
         ], function (err, result, user) {

@@ -119,7 +119,9 @@ PostSchema.virtual('statusName').get(function () {
     return func.getPostStatusName(this.status);
 });
 
-
+PostSchema.virtual('getCreatedAt').get(function(){
+    return this.createdAt.toISOString().replace(/T/, ' ').replace(/\..+/, '');
+});
 PostSchema.pre('save', (next) => {
     this.slug = Str.slugify(this.name);
     next();

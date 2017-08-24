@@ -1,0 +1,17 @@
+body {
+    font-family : "Arial", Helvetica Sans-Serif;
+    font-size: 0.9rem;
+}
+
+.upload-post{
+    background-color : #ffc107;
+    color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: #fff;
+}
+
+.main-menu{
+    padding : 0.2rem 1rem;
+}
