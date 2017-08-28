@@ -7,18 +7,15 @@ nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark.main-menu
         #navbarCollapse.collapse.navbar-collapse
             ul.navbar-nav.mr-auto
                 li.nav-item.nav-menu.active
-                    a.nav-link(href='#')
+                    a.nav-link.nav-menu-link(href='#')
                         | Trang chủ
                         span.sr-only (current)
-
-                li.nav-item.nav-menu
-                    a.nav-link(href='#') Nhặt được giấy tờ
-                li.nav-item.nav-menu
-                    a.nav-link(href='#') Mất giấy tờ
-                li.nav-item.nav-menu
-                    a.nav-link(href='#') Liên hệ
-                li.nav-item.nav-menu
-                    a.nav-link(href='#') Giới thiệu
+                each category in categoriesList
+                    li.nav-item.nav-menu
+                        a.nav-link.nav-menu-link(href='/' + category.slug)= category.name
+                each page in pagesList
+                    li.nav-item.nav-menu
+                        a.nav-link.nav-menu-link(href='/' + page.slug)= page.title
             div.mt-2.mt-md-0
-                button.btn.btn-outline-warning.my-2.my-sm-0.upload-post(type='submit')
+                a.btn.btn-outline-warning.my-2.my-sm-0.upload-post(href='/upload')
                     i.fa.fa-cloud-upload(aria-hidden='true')  Đăng tin miễn phí

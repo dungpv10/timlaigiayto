@@ -15,3 +15,44 @@ body {
 .main-menu{
     padding : 0.2rem 1rem;
 }
+
+.content-post{
+    font-size: 1rem;
+}
+
+footer{
+    background: #555555;
+    height : 2rem;
+    padding: 8px 0;
+}
+
+footer .footer-text {
+    color : #ececec;
+}
+
+@media (min-width: 768px){
+    .navbar-expand-md .navbar-nav .nav-menu-link{
+        padding-left : .8rem;
+        padding-right : .8rem;
+    }
+
+    .content{
+        margin-top: 2rem;
+        padding: 0 10rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px){
+    .content{
+        margin-top: 2rem;
+        padding: 1rem;
+        width: 100%;
+    }
+}
+
+
+.info-contact{
+    margin-top: .3rem;
+}
+

@@ -1,0 +1,39 @@
+#myCarousel.carousel.slide(data-ride='carousel')
+    ol.carousel-indicators
+        li.active(data-target='#myCarousel', data-slide-to='0')
+        li(data-target='#myCarousel', data-slide-to='1')
+        li(data-target='#myCarousel', data-slide-to='2')
+    .carousel-inner
+        .carousel-item.active
+            img.first-slide(src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='First slide')
+            .container
+                .carousel-caption.d-none.d-md-block.text-left
+                    h1 Bạn muốn mau chóng tìm lại giấy tờ
+                    p
+                        | Chúng tôi có dịch vụ chạy quảng cáo để bạn có thể mau chóng tìm lại giấy tờ
+                    p
+                        a.btn.btn-lg.btn-primary(href='#', role='button') Liên hệ ngay
+        .carousel-item
+            img.second-slide(src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='Second slide')
+            .container
+                .carousel-caption.d-none.d-md-block
+                    h1 Bạn bị mất giấy tờ ?
+                    p
+                        | Mất giấy tờ có thể đăng ký tại đây ngay
+                    p
+                        a.btn.btn-lg.btn-primary(href='#', role='button') Đăng tin ngay
+        .carousel-item
+            img.third-slide(src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='Third slide')
+            .container
+                .carousel-caption.d-none.d-md-block.text-right
+                    h1 Bạn nhặt được giấy tờ mà và muốn trả lại cho chủ nhân ?
+                    p
+                        | Tìm Chủ Sở Hữu "việc nhỏ phúc lớn". Miễn phí và sẽ luôn mãi là như vậy.
+                    p
+                        a.btn.btn-lg.btn-primary(href='#', role='button') Đăng tin ngay
+    a.carousel-control-prev(href='#myCarousel', role='button', data-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.sr-only Previous
+    a.carousel-control-next(href='#myCarousel', role='button', data-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.sr-only Next

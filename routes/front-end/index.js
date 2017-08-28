@@ -5,7 +5,9 @@ let FrontEndController = require(path.join(__dirname, '../../app/controllers/fro
 
 let router = express.Router();
 
+let frontEndMiddleware = require('../../app/middlewares/front-end');
 
-router.get('/', FrontEndController.index);
+router.get('/',frontEndMiddleware.index(), FrontEndController.index);
+router.get('/upload',frontEndMiddleware.index(), FrontEndController.upload);
 
 module.exports = router;
