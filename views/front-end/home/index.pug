@@ -3,60 +3,15 @@ extends ../layouts/main
 block content
     include ./partials/carousel
     .container.marketing
-        // Three columns of text below the carousel
-        .row
-            .col-lg-4
-                img.rounded-circle(src='/images/support-1.jpg', alt='Generic placeholder image', width='140', height='140')
-                p.info-contact
-                    | Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
-                p
-                    a.btn.btn-secondary(href='#', role='button') Liên hệ ngay »
-            // /.col-lg-4
-            .col-lg-4
-                img.rounded-circle(src='/images/support-2.jpg', alt='Generic placeholder image', width='140', height='140')
+        include ./partials/support
+        hr.featurette-divider
+        each post, index in posts
+            .row.featurette
+                .col-md-9(class=index % 2 === 0 ? 'order-md-2' : '' )
+                    h2.featurette-heading= post.title
+                    p.lead.content-post= post.shortContent
+                .col-md-3
+                    img.featurette-image.img-fluid.mx-auto(src='/images/default.jpg', alt=post.title)
 
-                p.info-contact
-                    | Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
-                p
-                    a.btn.btn-secondary(href='#', role='button') View details »
-            // /.col-lg-4
-            .col-lg-4
-                img.rounded-circle(src='/images/support-3.jpg', alt='Generic placeholder image', width='140', height='140')
-                p.info-contact
-                    | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                p
-                    a.btn.btn-secondary(href='#', role='button') View details »
-            // /.col-lg-4
-        // /.row
-        // START THE FEATURETTES
-        hr.featurette-divider
-        .row.featurette
-            .col-md-9
-                h2.featurette-heading
-                    | First featurette heading.
-                    span.text-muted It'll blow your mind.
-                p.lead.content-post
-                    | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-            .col-md-3
-                img.featurette-image.img-fluid.mx-auto(src='/images/default.jpg', alt='Generic placeholder image')
-        hr.featurette-divider
-        .row.featurette
-            .col-md-9.order-md-2
-                h2.featurette-heading
-                    | Oh yeah, it's that good.
-                    span.text-muted See for yourself.
-                p.lead.content-post
-                    | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-            .col-md-3.order-md-1
-                img.featurette-image.img-fluid.mx-auto(src='/images/default.jpg', alt='Generic placeholder image')
-        hr.featurette-divider
-        .row.featurette
-            .col-md-9
-                h2.featurette-heading
-                    | And lastly, this one.
-                    span.text-muted Checkmate.
-                p.lead.content-post
-                    | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-            .col-md-3
-                img.featurette-image.img-fluid.mx-auto(src='/images/default.jpg', alt='Generic placeholder image')
-        hr.featurette-divider
+            hr.featurette-divider
+

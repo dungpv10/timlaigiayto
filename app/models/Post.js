@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-
-
 const _ = require('lodash');
 
 let func = require('../libs/functions');
@@ -90,9 +88,9 @@ PostSchema.statics.getByPosition = function(){
 
 
 //Count new article today
-PostSchema.statics.countNewPost = function(dateFilter = {}){
+PostSchema.statics.countNewPost = function(dateFilter = {}, status = 0){
     return new Promise((resolve, reject) => {
-        let condition = {status : 0};
+        let condition = {status : status};
         if(!_.isEmpty(dateFilter)) condition = _.extend(condition, {createdAt : {$gte : dateFilter.start, $lte : dateFilter.end}});
 
         this.count(condition, (err, count) => {
@@ -103,9 +101,9 @@ PostSchema.statics.countNewPost = function(dateFilter = {}){
 };
 
 
-PostSchema.statics.getNewPosts = function(dateFilter = {}){
+PostSchema.statics.getNewPosts = function(dateFilter = {}, status = 0){
     return new Promise((resolve, reject) => {
-        let condition = {status : 0};
+        let condition = {status : status};
         if(!_.isEmpty(dateFilter)) condition = _.extend(condition, {createdAt : {$gte : dateFilter.start, $lte : dateFilter.end}});
         this.find(condition).populate('categoryId').limit(10).exec((err, posts) => {
             if(err) reject(err);
@@ -119,9 +117,14 @@ PostSchema.virtual('statusName').get(function () {
     return func.getPostStatusName(this.status);
 });
 
+PostSchema.virtual('shortContent').get(function(){
+    return _.truncate(this.content, {length : 250});
+});
+
 PostSchema.virtual('getCreatedAt').get(function(){
     return this.createdAt.toISOString().replace(/T/, ' ').replace(/\..+/, '');
 });
+
 PostSchema.pre('save', (next) => {
     this.slug = Str.slugify(this.name);
     next();

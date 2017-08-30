@@ -55,4 +55,6 @@ footer .footer-text {
 .info-contact{
     margin-top: .3rem;
 }
-
+.btn-outline-warning{
+    font-size: .9rem;
+}
