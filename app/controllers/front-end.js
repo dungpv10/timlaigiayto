@@ -1,4 +1,7 @@
 const Post = require('../models/Post');
+const Category = require('../models/Category');
+const postStatus = require('../../configs/params').postStatus;
+const provinces = require('../../configs/provinces');
 let router = {
 	index : (req, res) => {
 		Promise.all([
@@ -8,7 +11,12 @@ let router = {
 		}).catch(err => console.log(err));
 	},
 
-	upload : (req, res) => res.render('front-end/upload/index')
+	upload : (req, res) => {
+		Promise.all([
+			Category.getAll()
+		]).then(data => res.render('front-end/upload/index', {categories : data[0], post: data[1], postStatus : postStatus, provinces : provinces})).catch(err => console.log(err));
+
+    }
 
 };
 
