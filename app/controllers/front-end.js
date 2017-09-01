@@ -19,6 +19,16 @@ let router = {
     },
 	postUpload : (req, res) => {
 		Post.insert(req.body).then(post => res.redirect('/')).catch(err => console.log(err));
+	},
+
+
+	//Love
+    getLove : (req, res) => {
+		res.render('front-end/love/index');
+	},
+
+    getLoveCrush : (req, res) => {
+		res.render('front-end/love/detail');
 	}
 
 };
