@@ -17,6 +17,7 @@ let PostSchema = new Schema({
     content: {type: String},
     categoryId: {type: Schema.Types.ObjectId, ref: 'Category'},
     status: {type: String, default: 0},
+    receiveAt : {type : Date, default : Date.now()}
 }, {timestamps: true});
 
 
@@ -126,7 +127,7 @@ PostSchema.virtual('getCreatedAt').get(function(){
 });
 
 PostSchema.pre('save', (next) => {
-    this.slug = Str.slugify(this.name);
+    this.slug = Str.slugify(this.title + '-' + this.id);
     next();
 });
 

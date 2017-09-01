@@ -14,6 +14,7 @@ let frontEndMiddleware = require('../../app/middlewares/front-end');
 
 router.get('/',frontEndMiddleware.index(), FrontEndController.index);
 router.get('/upload',frontEndMiddleware.index(), FrontEndController.upload);
+router.post('/upload',frontEndMiddleware.index(), FrontEndController.postUpload);
 
 router.get('/scrape', (req, res) => {
     const url = 'http://timgiayto.com.vn/';

@@ -1,6 +1,7 @@
 extends ../layouts/main
 block header_css
     link(href="/front-end/vendor/select2/select2.min.css", type="text/css", rel="stylesheet")
+    link(href="/front-end/vendor/css/bootstrap-datepicker.min.css", type="text/css", rel="stylesheet")
     style.
         .form-control {
             border-radius: 0;
@@ -13,65 +14,60 @@ block header_css
 block content
     .container.marketing
         .row(style="margin-top:60px")
-            <div class="container">
-            <form>
-            <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Địa điểm</label>
-            <div class="col-sm-10">
-            <select name="position" class="form-control select2">
-            each province in provinces
-                option(value=province)= province
-            </select>
-            </div>
-            </div>
-            <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Ngày rơi</label>
-            <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPassword3" placeholder="Ngày rơi / nhặt được">
-            </div>
-            </div>
-            <fieldset class="form-group row">
-            <legend class="col-form-legend col-sm-2">Radios</legend>
-            <div class="col-sm-10">
-            <div class="form-check">
-            <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            Option one is this and that&mdash;be sure to include why it's great
-            </label>
-            </div>
-            <div class="form-check">
-            <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            Option two can be something else and selecting it will deselect option one
-            </label>
-            </div>
-            <div class="form-check disabled">
-            <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-            Option three is disabled
-            </label>
-            </div>
-            </div>
-            </fieldset>
-            <div class="form-group row">
-            <label class="col-sm-2">Checkbox</label>
-            <div class="col-sm-10">
-            <div class="form-check">
-            <label class="form-check-label">
-            <input class="form-check-input" type="checkbox"> Check me out
-            </label>
-            </div>
-            </div>
-            </div>
-            <div class="form-group row">
-            <div class="offset-sm-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">Sign in</button>
-            </div>
-            </div>
-            </form>
-            </div>
+            .container
+                form(action = "/upload", method="POST")
+                    .form-group.row
+                        h3 Nội dung
+                    .form-group.row
+                        label.col-sm-2.col-form-label(for='position') Địa điểm
+                        .col-sm-10
+                            select.form-control.select2(name='position')
+                                 each province in provinces
+                                    option(value=province)= province
+                    .form-group.row
+                        label.col-sm-2.col-form-label(for='categoryId') Danh mục tin
+                        .col-sm-10
+                            select.form-control.select2(name='categoryId')
+                                 each category in categories
+                                    option(value=category._id)= category.name
+                    .form-group.row
+                        label.col-sm-2.col-form-label(for='receiveAt') Ngày rơi
+                        .col-sm-10
+                            input.form-control.datepicker(type='text', placeholder='Ngày rơi / nhặt được', name = "receiveAt")
+
+                    .form-group.row
+                        label.col-sm-2.col-form-label(for='title') Tiêu đề tin
+                        .col-sm-10
+                            input.form-control(type='text', placeholder='Tiêu đề tin', name="title")
+                    .form-group.row
+                        label.col-sm-2.col-form-label(for='content') Nội dung tin
+                        .col-sm-10
+                            textarea.form-control(type='text', placeholder='Nội dung tin', name="content")
+
+                    .form-group.row
+                        h3 Thông tin liên hệ
+
+                    .form-group.row
+                        label.col-sm-2.col-form-label(for='fullName') Họ và tên
+                        .col-sm-10
+                            input.form-control(type='text', placeholder='Họ và tên', name="fullName")
+                    .form-group.row
+                        label.col-sm-2.col-form-label(for='numberPhone') Số điện thoại
+                        .col-sm-10
+                            input.form-control(type='text', placeholder='Số điện thoại', name="numberPhone")
+                    .form-group.row
+                        label.col-sm-2.col-form-label(for='email') Email
+                        .col-sm-10
+                            input.form-control(type='text', placeholder='Email', name="email")
+
+                    .form-group.row
+                        .offset-sm-2.col-sm-10
+                            button.btn.btn-primary(type='submit') Đăng tin
+
 
 block footer_js
     script(src="/front-end/vendor/select2/select2.min.js", type="text/javascript")
+    script(src="/front-end/vendor/js/bootstrap-datepicker.min.js", type="text/javascript")
     script.
         $('.select2').select2();
+        $('.datepicker').datepicker();
