@@ -21,6 +21,8 @@
     "mongoose": "^4.11.5",
     "nodemailer": "^4.0.1",
     "nodemon": "^1.11.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
     "pug": "^2.0.0-rc.3",
     "request": "^2.81.0"
   },

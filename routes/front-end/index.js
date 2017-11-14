@@ -19,7 +19,7 @@ router.post('/upload',frontEndMiddleware.index(), FrontEndController.postUpload)
 router.get('/love', FrontEndController.getLove);
 router.get('/love/crush', FrontEndController.getLoveCrush);
 
-
+router.get('/login', FrontEndController.getLogin);
 
 router.get('/scrape', (req, res) => {
     const url = 'http://timgiayto.com.vn/';

@@ -29,6 +29,10 @@ let router = {
 
     getLoveCrush : (req, res) => {
 		res.render('front-end/love/detail');
+	},
+
+	getLogin : (req, res) => {
+		res.send('vaoooo');
 	}
 
 };

@@ -35,10 +35,13 @@ connection.init().then(connection => {
      */
     let routerFrontEnd = require(path.join(__dirname, 'routes/front-end/index'));
     let routerAdmin = require(path.join(__dirname, 'routes/admin/index'));
+    let routerApi = require(path.join(__dirname, 'routes/api/index'));
+
 
     app.use('/', routerFrontEnd);
     app.use('/admin', routerAdmin);
 
+    app.use('/api', routerApi);
     /**
      * Connect to database
      */
@@ -46,6 +49,6 @@ connection.init().then(connection => {
         if(err) console.log(err);
         else console.log('Connect to server on port ' + process.env.PORT || 3000);
     });
-}).catch((err) => console.log(err));
+}).catch(err => console.log(err));
 
 
