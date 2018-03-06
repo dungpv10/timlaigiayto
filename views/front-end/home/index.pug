@@ -1,11 +1,14 @@
 extends ../layouts/main
-
+block header_css
+    link(href='./front-end/vendor/select2/select2.min.css', rel='stylesheet')
 block content
     include ./partials/carousel
     .container.marketing
         include ./partials/search
-        //include ./partials/support
         hr.featurette-divider
         include ./partials/main_content
-            //hr.featurette-divider
+block footer_js
+    script(src='./front-end/vendor/select2/select2.min.js')
+    script.
+        $('.select2').select2();
 
