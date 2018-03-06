@@ -41,6 +41,9 @@ footer .footer-text {
         padding: 0 10rem;
         width: 100%;
     }
+    .form-input-search:not(:first-child){
+        margin-left: 10px;
+    }
 }
 
 @media (max-width: 768px){
@@ -57,4 +60,20 @@ footer .footer-text {
 }
 .btn-outline-warning{
     font-size: .9rem;
+}
+
+.user-info .user-image img{
+    max-width: 70px;
+}
+
+.left-title-sidebar{
+    line-height: 60px;
+    padding: 5px 92px;
+}
+
+
+
+
+.home-search-form{
+    margin-bottom: 40px;
 }

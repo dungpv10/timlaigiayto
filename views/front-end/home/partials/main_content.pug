@@ -1,0 +1,20 @@
+.row
+    .col-md-9
+        each post, index in posts
+            .row.featurette
+                .col-md-9(class=index % 2 === 0 ? 'order-md-2' : '' )
+                    h2.featurette-heading= post.title
+                    p.lead.content-post= post.shortContent
+                .col-md-3
+                    img.featurette-image.img-fluid.mx-auto(src='/images/default.jpg', alt=post.title)
+    .col-md-3
+        .user-info
+            ul.list-group.list-group-flush
+                li.list-group-item
+                    .col-md-3.user-image
+                        img.rounded.float-left(src='./images/support-1.jpg')
+                    .col-md-9.left-title-sidebar Vaoo
+                li.list-group-item Dapibus ac facilisis in
+                li.list-group-item Morbi leo risus
+                li.list-group-item Porta ac consectetur ac
+                li.list-group-item Vestibulum at eros

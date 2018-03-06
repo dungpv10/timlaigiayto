@@ -3,15 +3,9 @@ extends ../layouts/main
 block content
     include ./partials/carousel
     .container.marketing
-        include ./partials/support
+        include ./partials/search
+        //include ./partials/support
         hr.featurette-divider
-        each post, index in posts
-            .row.featurette
-                .col-md-9(class=index % 2 === 0 ? 'order-md-2' : '' )
-                    h2.featurette-heading= post.title
-                    p.lead.content-post= post.shortContent
-                .col-md-3
-                    img.featurette-image.img-fluid.mx-auto(src='/images/default.jpg', alt=post.title)
-
-            hr.featurette-divider
+        include ./partials/main_content
+            //hr.featurette-divider
 
